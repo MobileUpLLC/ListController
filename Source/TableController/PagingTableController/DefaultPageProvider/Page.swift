@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - Page
 
-struct Page<T> {
+public struct Page<T> {
     
     // MARK: - Public properties
     

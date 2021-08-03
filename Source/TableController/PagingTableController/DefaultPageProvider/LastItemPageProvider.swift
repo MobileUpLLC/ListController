@@ -9,7 +9,7 @@ import Combine
 
 // MARK: - LastItemPageProvider
 
-protocol LastItemPageProvider: PublisherPageProvider {
+public protocol LastItemPageProvider: PublisherPageProvider {
     
     // MARK: - Public properties
     

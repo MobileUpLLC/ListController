@@ -9,7 +9,7 @@ import Combine
 
 // MARK: - LimitOffsetPageProvider
 
-protocol LimitOffsetPageProvider: PublisherPageProvider {
+public protocol LimitOffsetPageProvider: PublisherPageProvider {
     
     // MARK: - Public properties
     

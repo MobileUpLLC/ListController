@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - PageLoadingView
 
-public class PageLoadingView: UIView {
+open class PageLoadingView: UIView {
     
     // MARK: - Private properties
     
@@ -30,7 +30,7 @@ public class PageLoadingView: UIView {
         layoutSubview(messageLabel)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

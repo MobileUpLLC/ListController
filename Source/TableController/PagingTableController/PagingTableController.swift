@@ -8,7 +8,7 @@
 import UIKit
 
 
-public class PagingTableController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
+open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     LoadingTableController<SectionItem, RowItem> {
     
     // MARK: - Public properties
