@@ -15,6 +15,6 @@ Pod::Spec.new do |spec|
   spec.ios.frameworks = 'UIKit'
   spec.swift_version = ['5']
   
-  spec.source = { :git => 'https://github.com/MobileUpLLC/ListController', :tag => spec.version.to_s }
+  spec.source = { :git => 'https://github.com/MobileUpLLC/ListController.git', :tag => spec.version.to_s }
   spec.source_files  = "Source/", "Source/**/*.{swift}"
 end
