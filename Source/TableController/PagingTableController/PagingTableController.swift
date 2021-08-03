@@ -8,7 +8,7 @@
 import UIKit
 
 
-class PagingTableController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
+public class PagingTableController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     LoadingTableController<SectionItem, RowItem> {
     
     // MARK: - Public properties
@@ -17,19 +17,19 @@ class PagingTableController<Provider: PageProvider, SectionItem: Hashable, RowIt
     
     // MARK: - Override methods
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         requestInitialItems()
     }
     
-    override func pagingDidStartLoading(_ adapter: PagingAdapter) {
+    public override func pagingDidStartLoading(_ adapter: PagingAdapter) {
         super.pagingDidStartLoading(adapter)
         
         requestNextPageItems()
     }
     
-    override func refreshDidStartLoading(_ refreshControl: UIRefreshControl) {
+    public override func refreshDidStartLoading(_ refreshControl: UIRefreshControl) {
         super.refreshDidStartLoading(refreshControl)
         
         requestRefreshItems()

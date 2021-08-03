@@ -9,7 +9,7 @@ import Combine
 
 // MARK: - PublisherPageProvider
 
-protocol PublisherPageProvider: PageProvider, AnyObject {
+public protocol PublisherPageProvider: PageProvider, AnyObject {
     
     // MARK: - Public properties
     

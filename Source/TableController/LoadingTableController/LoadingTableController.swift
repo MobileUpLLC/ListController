@@ -64,11 +64,11 @@ open class LoadingTableController<SectionItem: Hashable, RowItem: Hashable>: Tab
 
 extension LoadingTableController: PagingAdapterDelegate {
     
-    func pagingAdapterDidRequest(_ adapter: PagingAdapter) {
+    public func pagingAdapterDidRequest(_ adapter: PagingAdapter) {
         pagingDidStartLoading(adapter)
     }
     
-    func pagingAdapterDidRetry(_ adapter: PagingAdapter) {
+    public func pagingAdapterDidRetry(_ adapter: PagingAdapter) {
         pagingDidStartLoading(adapter)
     }
 }

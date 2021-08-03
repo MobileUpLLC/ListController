@@ -31,7 +31,7 @@ public struct PagingConfig {
 
 // MARK: - PagingAdapterDelegate
 
-protocol PagingAdapterDelegate: AnyObject {
+public protocol PagingAdapterDelegate: AnyObject {
     
     func pagingAdapterDidRequest(_ adapter: PagingAdapter)
     func pagingAdapterDidRetry(_ adapter: PagingAdapter)

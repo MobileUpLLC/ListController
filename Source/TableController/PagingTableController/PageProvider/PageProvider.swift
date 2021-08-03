@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - PageResult
 
-struct PageResult<T> {
+public struct PageResult<T> {
     
     // MARK: - Public properties
     
@@ -20,7 +20,7 @@ struct PageResult<T> {
 
 // MARK: - PageProvider
 
-protocol PageProvider {
+public protocol PageProvider {
     
     // MARK: - Types
     

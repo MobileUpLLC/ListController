@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - PageLoadingView
 
-class PageLoadingView: UIView {
+public class PageLoadingView: UIView {
     
     // MARK: - Private properties
     
