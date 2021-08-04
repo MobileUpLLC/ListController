@@ -19,7 +19,7 @@ open class LoadingTableController<SectionItem: Hashable, RowItem: Hashable>: Tab
     
     open var pagingConfig: PagingConfig { .default }
     
-    lazy var paginationAdapter = PagingAdapter(scrollView: tableView, superView: view, config: pagingConfig)
+    open lazy var paginationAdapter = PagingAdapter(scrollView: tableView, superView: view, config: pagingConfig)
     lazy var refreshControl = UIRefreshControl()
     
     // MARK: - Override methods
