@@ -71,11 +71,11 @@ open class PagingAdapter {
     
     // MARK: - Public properties
     
-    weak var delegate: PagingAdapterDelegate?
+    public weak var delegate: PagingAdapterDelegate?
     
-    let config: PagingConfig
+    public let config: PagingConfig
     
-    var isEnabled: Bool {
+    public var isEnabled: Bool {
         get { pageLoadingView.isHidden == false }
         set {
             if newValue == true && pageLoadingView.isHidden {
@@ -105,7 +105,7 @@ open class PagingAdapter {
     
     // MARK: - Public methods
     
-    init(scrollView: UIScrollView, superView: UIView, config: PagingConfig) {
+    public init(scrollView: UIScrollView, superView: UIView, config: PagingConfig) {
         self.scrollView = scrollView
         self.scrollViewSuperView = superView
         self.config = config
@@ -113,7 +113,7 @@ open class PagingAdapter {
         setupPageLoadingView()
     }
 
-    func updateOnScroll() {
+    open func updateOnScroll() {
         guard isEnabled else { return }
         
         // Positive if content over scroll bottom line.
@@ -162,12 +162,12 @@ open class PagingAdapter {
     }
     
     /// Should be called after table view updates
-    func startWaiting() {
+    open func startWaiting() {
         state = .waiting
         updateOnScroll()
     }
     
-    func showMessage(_ msg: String) {
+    open func showMessage(_ msg: String) {
         state = .message
         pageLoadingView.showMessage(msg)
     }
