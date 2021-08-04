@@ -70,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E213431426BAB37B0046DA50 /* ListController */ = {
+			isa = PBXGroup;
+			children = (
+				E2E2CEE326B9735C00FF8E0A /* BaseListController.swift */,
+			);
+			path = ListController;
+			sourceTree = "<group>";
+		};
 		E2E2CEC826B971F300FF8E0A = {
 			isa = PBXGroup;
 			children = (
@@ -90,10 +98,12 @@
 			isa = PBXGroup;
 			children = (
 				E2E2CF0826B975D400FF8E0A /* Extensions */,
-				E2E2CEE326B9735C00FF8E0A /* BaseListController.swift */,
-				E2E2CEE026B9735C00FF8E0A /* CollectionController */,
 				E2E2CEF426B9735C00FF8E0A /* Configurable */,
+				E213431426BAB37B0046DA50 /* ListController */,
+				E2E2CEE026B9735C00FF8E0A /* CollectionController */,
 				E2E2CEE426B9735C00FF8E0A /* TableController */,
+				E2E2CEE526B9735C00FF8E0A /* PagingTableController */,
+				E2E2CEEF26B9735C00FF8E0A /* LoadingTableController */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -110,10 +120,8 @@
 		E2E2CEE426B9735C00FF8E0A /* TableController */ = {
 			isa = PBXGroup;
 			children = (
-				E2E2CEE526B9735C00FF8E0A /* PagingTableController */,
-				E2E2CEEE26B9735C00FF8E0A /* BaseTableController.swift */,
-				E2E2CEEF26B9735C00FF8E0A /* LoadingTableController */,
 				E2E2CEF326B9735C00FF8E0A /* TableController.swift */,
+				E2E2CEEE26B9735C00FF8E0A /* BaseTableController.swift */,
 			);
 			path = TableController;
 			sourceTree = "<group>";

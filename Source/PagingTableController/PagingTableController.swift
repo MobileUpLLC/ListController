@@ -17,19 +17,19 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: - Override methods
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         requestInitialItems()
     }
     
-    public override func pagingDidStartLoading(_ adapter: PagingAdapter) {
+    open override func pagingDidStartLoading(_ adapter: PagingAdapter) {
         super.pagingDidStartLoading(adapter)
         
         requestNextPageItems()
     }
     
-    public override func refreshDidStartLoading(_ refreshControl: UIRefreshControl) {
+    open override func refreshDidStartLoading(_ refreshControl: UIRefreshControl) {
         super.refreshDidStartLoading(refreshControl)
         
         requestRefreshItems()
@@ -51,14 +51,14 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         }
     }
     
-    func handleInitialItems(_ pageResult: PageResult<Provider.T>) {
+    open func handleInitialItems(_ pageResult: PageResult<Provider.T>) {
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
         apply(newSnapshot, animating: false)
         
         paginationAdapter.isEnabled = pageResult.hasMore
     }
     
-    func handleInitialError(_ error: Error) { }
+    open func handleInitialError(_ error: Error) { }
     
     // MARK: Refresh Items
     
@@ -74,7 +74,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         }
     }
     
-    func handleRefreshItems(_ pageResult: PageResult<Provider.T>) {
+    open func handleRefreshItems(_ pageResult: PageResult<Provider.T>) {
         refreshControl.endRefreshing()
         
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
@@ -83,7 +83,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         paginationAdapter.isEnabled = pageResult.hasMore
     }
     
-    func handleRefreshError(_ error: Error) {
+    open func handleRefreshError(_ error: Error) {
         refreshControl.endRefreshing()
     }
     
@@ -101,7 +101,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         }
     }
     
-    func handlePagingItems(_ pageResult: PageResult<Provider.T>) {
+    open func handlePagingItems(_ pageResult: PageResult<Provider.T>) {
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
         
         apply(newSnapshot) { [paginationAdapter] in
@@ -110,7 +110,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         }
     }
     
-    func handlePagingError(_ error: Error) {
+    open func handlePagingError(_ error: Error) {
         paginationAdapter.showMessage("Ooops :(")
     }
     
