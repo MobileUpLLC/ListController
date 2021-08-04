@@ -23,7 +23,7 @@ public protocol PublisherPageProvider: PageProvider, AnyObject {
 
 // MARK: - PageProvider Implementation
 
-extension PublisherPageProvider {
+public extension PublisherPageProvider {
     
     func getFirstPage(_ completion: @escaping (Result<PageResult<T>, Error>) -> Void) {
         getFirstPage()
