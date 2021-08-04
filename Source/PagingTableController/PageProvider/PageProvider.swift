@@ -13,9 +13,9 @@ public struct PageResult<T> {
     
     // MARK: - Public properties
     
-    let newItems: [T]
-    let allItems: [T]
-    let hasMore: Bool
+    public let newItems: [T]
+    public let allItems: [T]
+    public let hasMore: Bool
 
     // MARK: - Public methods
 

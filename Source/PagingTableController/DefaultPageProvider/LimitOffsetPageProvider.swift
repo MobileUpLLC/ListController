@@ -27,7 +27,7 @@ public protocol LimitOffsetPageProvider: PublisherPageProvider {
 
 // MARK: - LimitOffsetPageProvider + Default Implementation
 
-extension LimitOffsetPageProvider {
+public extension LimitOffsetPageProvider {
     
     // MARK: - Public properties
     

@@ -13,7 +13,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: - Public properties
     
-    var pageProvider: Provider { fatalError() }
+    open var pageProvider: Provider { fatalError() }
     
     // MARK: - Override methods
     

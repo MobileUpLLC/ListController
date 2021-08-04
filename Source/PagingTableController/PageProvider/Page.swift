@@ -13,8 +13,8 @@ public struct Page<T> {
     
     // MARK: - Public properties
     
-    let items: [T]
-    let hasMore: Bool
+    public let items: [T]
+    public let hasMore: Bool
 
     // MARK: - Public methods
 

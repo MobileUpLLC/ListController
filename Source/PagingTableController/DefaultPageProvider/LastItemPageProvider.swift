@@ -22,7 +22,7 @@ public protocol LastItemPageProvider: PublisherPageProvider {
 
 // MARK: - LastItemPageProvider + Default Implementation
 
-extension LastItemPageProvider {
+public extension LastItemPageProvider {
     
     // MARK: - Public methods
     
