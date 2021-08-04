@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ListController"
-  spec.version      = "1.0.4"
+  spec.version      = "1.0.5"
   spec.summary      = "An abstraction layer to deal with listable data"
   spec.description  = "Provides an abstraction layer to deal with listable data. It's a simpler and faster way to build table views on top of this than from scratch."
   spec.homepage     = "https://github.com/MobileUpLLC/ListController"
