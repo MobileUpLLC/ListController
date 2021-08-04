@@ -39,7 +39,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Initial Items
     
-    public func requestInitialItems() {
+    open func requestInitialItems() {
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -62,7 +62,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Refresh Items
     
-    public func requestRefreshItems() {
+    open func requestRefreshItems() {
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -89,7 +89,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Next Page Items
     
-    public func requestNextPageItems() {
+    open func requestNextPageItems() {
         pageProvider.getNextPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):

@@ -9,11 +9,11 @@ import UIKit
 
 // MARK: - CollectionController
 
-class CollectionController<SectionItem: Hashable, RowItem: Hashable>: BaseCollectionController<SectionItem, RowItem>, UICollectionViewDelegate {
+open class CollectionController<SectionItem: Hashable, RowItem: Hashable>: BaseCollectionController<SectionItem, RowItem>, UICollectionViewDelegate {
     
     // MARK: - Override methods
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
@@ -27,7 +27,7 @@ class CollectionController<SectionItem: Hashable, RowItem: Hashable>: BaseCollec
     
     // MARK: - UICollectionViewDelegate
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else {
             assertionFailure("Don't find item of type: `\(RowItem.self)` for index path: \(indexPath)")
             return
