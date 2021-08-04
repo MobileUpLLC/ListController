@@ -27,6 +27,20 @@ public struct PagingConfig {
         loadingHeight: 60,
         isDisableOnEndItems: true
     )
+
+    public init(
+        isRetryEnabled: Bool,
+        requestTriggerHeight: CGFloat,
+        retryTriggerHeight: CGFloat,
+        loadingHeight: CGFloat,
+        isDisableOnEndItems: Bool
+    ) {
+        self.isRetryEnabled = isRetryEnabled
+        self.requestTriggerHeight = requestTriggerHeight
+        self.retryTriggerHeight = retryTriggerHeight
+        self.loadingHeight = loadingHeight
+        self.isDisableOnEndItems = isDisableOnEndItems
+    }
 }
 
 // MARK: - PagingAdapterDelegate

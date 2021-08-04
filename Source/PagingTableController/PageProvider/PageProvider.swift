@@ -16,6 +16,14 @@ public struct PageResult<T> {
     let newItems: [T]
     let allItems: [T]
     let hasMore: Bool
+
+    // MARK: - Public methods
+
+    public init(newItems: [T], allItems: [T], hasMore: Bool) {
+        self.newItems = newItems
+        self.allItems = allItems
+        self.hasMore = hasMore
+    }
 }
 
 // MARK: - PageProvider

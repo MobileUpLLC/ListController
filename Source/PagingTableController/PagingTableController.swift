@@ -39,7 +39,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Initial Items
     
-    func requestInitialItems() {
+    public func requestInitialItems() {
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -62,7 +62,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Refresh Items
     
-    func requestRefreshItems() {
+    public func requestRefreshItems() {
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -89,7 +89,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
     
     // MARK: Next Page Items
     
-    func requestNextPageItems() {
+    public func requestNextPageItems() {
         pageProvider.getNextPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -114,7 +114,7 @@ open class PagingTableController<Provider: PageProvider, SectionItem: Hashable, 
         paginationAdapter.showMessage("Ooops :(")
     }
     
-    func map(
+    open func map(
         newItems: [Provider.T],
         allItems: [Provider.T]
     ) -> NSDiffableDataSourceSnapshot<SectionItem, RowItem> {

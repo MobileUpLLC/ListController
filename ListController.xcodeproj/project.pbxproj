@@ -139,6 +139,7 @@
 		E2E2CEE626B9735C00FF8E0A /* PageProvider */ = {
 			isa = PBXGroup;
 			children = (
+				E2E2CEEC26B9735C00FF8E0A /* Page.swift */,
 				E2E2CEE726B9735C00FF8E0A /* PageProvider.swift */,
 				E2E2CEE826B9735C00FF8E0A /* PublisherPageProvider.swift */,
 			);
@@ -150,7 +151,6 @@
 			children = (
 				E2E2CEEA26B9735C00FF8E0A /* LastItemPageProvider.swift */,
 				E2E2CEEB26B9735C00FF8E0A /* LimitOffsetPageProvider.swift */,
-				E2E2CEEC26B9735C00FF8E0A /* Page.swift */,
 			);
 			path = DefaultPageProvider;
 			sourceTree = "<group>";
