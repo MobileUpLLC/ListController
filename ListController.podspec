@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ListController"
-  spec.version      = "1.0.11"
+  spec.version      = "1.1.0"
   spec.summary      = "An abstraction layer to deal with listable data"
   spec.description  = "Provides an abstraction layer to deal with listable data. It's a simpler and faster way to build table views on top of this than from scratch."
   spec.homepage     = "https://github.com/MobileUpLLC/ListController"
@@ -16,5 +16,5 @@ Pod::Spec.new do |spec|
   spec.swift_version = ['5']
   
   spec.source = { :git => 'https://github.com/MobileUpLLC/ListController.git', :tag => spec.version.to_s }
-  spec.source_files  = "Source/", "Source/**/*.{swift}"
+  spec.source_files  = "Sources/", "Sources/**/*.{swift}"
 end
