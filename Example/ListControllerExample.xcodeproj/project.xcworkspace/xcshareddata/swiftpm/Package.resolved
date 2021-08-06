@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ListController",
+        "repositoryURL": "https://github.com/MobileUpLLC/ListController/",
+        "state": {
+          "branch": null,
+          "revision": "2da578176c6283949d305dc175e7d323b08f85fd",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
