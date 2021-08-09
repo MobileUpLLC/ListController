@@ -20,6 +20,7 @@ let package = Package(
             dependencies: [],
             path: "Sources",
             exclude: [
+                "Example",
                 "ListController.podspec",
                 "README.md",
                 "LICENSE",
