@@ -30,10 +30,12 @@ class SearchViewController: TableController<Int, String> {
         
         title = "Search"
         
-        setupTable(with: SearchCell.self)
+        setupTable()
+        tableView.register(SearchCell.self, forCellReuseIdentifier: defaultCellReuseIdentifier)
+
         setupSearchController()
 
-        update(with: items)
+        apply(items: items)
     }
 
     // MARK: - Private methods
@@ -46,30 +48,25 @@ class SearchViewController: TableController<Int, String> {
 
         navigationItem.searchController = searchController
     }
-
-    private func update(with items: [String], animated: Bool = false) {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(items, toSection: 0)
-
-        apply(snapshot, animating: animated)
-    }
 }
 
 // MARK: - SearchViewController
 
 extension SearchViewController: UISearchResultsUpdating {
 
+    // MARK: - Public methods
+
     func updateSearchResults(for searchController: UISearchController) {
         guard
-            let filter = searchController.searchBar.text,
-            filter.isEmpty == false
+            let searchText = searchController.searchBar.text,
+            searchText.isEmpty == false
         else {
-            return update(with: seas, animated: true)
+            apply(items: items, animated: true)
+            return
         }
 
-        let filteredWords = seas.filter { $0.lowercased().contains(filter.lowercased()) }
+        let filteredWords = items.filter { $0.lowercased().contains(searchText.lowercased()) }
 
-        update(with: filteredWords, animated: true)
+        apply(items: filteredWords, animated: true)
     }
 }

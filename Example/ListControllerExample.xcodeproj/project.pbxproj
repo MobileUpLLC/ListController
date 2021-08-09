@@ -19,6 +19,10 @@
 		E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B486026BD8CAF00C19A0F /* Sea.swift */; };
 		E27B486326BD914B00C19A0F /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B486226BD914B00C19A0F /* SearchCell.swift */; };
 		E27B486626BD92A500C19A0F /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B486526BD92A500C19A0F /* TableController.swift */; };
+		E2A73F8526C1152C00346314 /* HeaderFooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8426C1152C00346314 /* HeaderFooterViewController.swift */; };
+		E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8626C1167F00346314 /* PrimitiveItem.swift */; };
+		E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8826C1176B00346314 /* PrimitiveItemCell.swift */; };
+		E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		E27B486026BD8CAF00C19A0F /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
 		E27B486226BD914B00C19A0F /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		E27B486526BD92A500C19A0F /* TableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		E2A73F8426C1152C00346314 /* HeaderFooterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooterViewController.swift; sourceTree = "<group>"; };
+		E2A73F8626C1167F00346314 /* PrimitiveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveItem.swift; sourceTree = "<group>"; };
+		E2A73F8826C1176B00346314 /* PrimitiveItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveItemCell.swift; sourceTree = "<group>"; };
+		E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredHeaderFooterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 			children = (
 				E20B665826BD5E1000CA1C1E /* Example.swift */,
 				E27B486026BD8CAF00C19A0F /* Sea.swift */,
+				E2A73F8626C1167F00346314 /* PrimitiveItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,6 +119,7 @@
 				E27B486426BD926100C19A0F /* Extensions */,
 				E20B665226BD38A800CA1C1E /* Examples */,
 				E27B485A26BD80E700C19A0F /* Search */,
+				E2A73F8326C114E700346314 /* HeaderFooter */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -129,6 +139,16 @@
 				E27B486526BD92A500C19A0F /* TableController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2A73F8326C114E700346314 /* HeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				E2A73F8426C1152C00346314 /* HeaderFooterViewController.swift */,
+				E2A73F8826C1176B00346314 /* PrimitiveItemCell.swift */,
+				E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */,
+			);
+			path = HeaderFooter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,11 +231,15 @@
 				E27B485C26BD80FF00C19A0F /* SearchViewController.swift in Sources */,
 				E27B486326BD914B00C19A0F /* SearchCell.swift in Sources */,
 				E27B485926BD77E500C19A0F /* ExampleCell.swift in Sources */,
+				E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */,
 				E27B486626BD92A500C19A0F /* TableController.swift in Sources */,
 				E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */,
 				E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */,
+				E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */,
+				E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */,
 				E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */,
 				E20B665926BD5E1000CA1C1E /* Example.swift in Sources */,
+				E2A73F8526C1152C00346314 /* HeaderFooterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

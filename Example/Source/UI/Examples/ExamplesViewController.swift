@@ -23,6 +23,7 @@ class ExamplesViewController: TableController<Int, Example> {
 
     private let items: [Example] = [
         Example(name: "Search", controller: SearchViewController.self),
+        Example(name: "HeaderFooter", controller: HeaderFooterViewController.self),
     ]
 
     // MARK: - Override methods
@@ -32,23 +33,15 @@ class ExamplesViewController: TableController<Int, Example> {
 
         title = "Examples"
 
-        setupTable(with: ExampleCell.self)
-        applyItems()
+        setupTable()
+        tableView.register(ExampleCell.self, forCellReuseIdentifier: defaultCellReuseIdentifier)
+
+        apply(items: items)
     }
 
     override func cellDidSelect(for item: Example, at indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
         navigationController?.pushViewController(item.controller.init(), animated: true)
-    }
-
-    // MARK: - Private methods
-
-    private func applyItems() {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, Example>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(items, toSection: 0)
-
-        apply(snapshot)
     }
 }
