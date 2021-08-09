@@ -16,6 +16,7 @@ extension TableController {
 
     func setupTable(separatorStyle: UITableViewCell.SeparatorStyle = .singleLine) {
         view.addSubview(tableView)
+        view.backgroundColor = .systemBackground
 
         tableView.estimatedSectionHeaderHeight = .leastNormalMagnitude
         tableView.estimatedSectionFooterHeight = 0
@@ -23,12 +24,14 @@ extension TableController {
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = separatorStyle
 
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-            make.leading.equalTo(view.snp.leading)
-            make.trailing.equalTo(view.snp.trailing)
-        }
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
 }
 

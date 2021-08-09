@@ -13,7 +13,6 @@
 		E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26EF4C326BD2DD500E43157 /* ExamplesViewController.swift */; };
 		E26EF4C926BD2DD700E43157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E26EF4C826BD2DD700E43157 /* Assets.xcassets */; };
 		E26EF4CC26BD2DD700E43157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E26EF4CA26BD2DD700E43157 /* LaunchScreen.storyboard */; };
-		E27B485626BD6CA600C19A0F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E27B485526BD6CA600C19A0F /* SnapKit */; };
 		E27B485926BD77E500C19A0F /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B485826BD77E500C19A0F /* ExampleCell.swift */; };
 		E27B485C26BD80FF00C19A0F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B485B26BD80FF00C19A0F /* SearchViewController.swift */; };
 		E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27B486026BD8CAF00C19A0F /* Sea.swift */; };
@@ -50,7 +49,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20B665626BD5D7E00CA1C1E /* ListController in Frameworks */,
-				E27B485626BD6CA600C19A0F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +167,6 @@
 			name = ListControllerExample;
 			packageProductDependencies = (
 				E20B665526BD5D7E00CA1C1E /* ListController */,
-				E27B485526BD6CA600C19A0F /* SnapKit */,
 			);
 			productName = ListControllerExample;
 			productReference = E26EF4BC26BD2DD500E43157 /* ListControllerExample.app */;
@@ -200,7 +197,6 @@
 			mainGroup = E26EF4B326BD2DD500E43157;
 			packageReferences = (
 				E20B665426BD5D7E00CA1C1E /* XCRemoteSwiftPackageReference "ListController" */,
-				E27B485426BD6CA600C19A0F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E26EF4BD26BD2DD500E43157 /* Products */;
 			projectDirPath = "";
@@ -445,14 +441,6 @@
 				minimumVersion = 1.1.0;
 			};
 		};
-		E27B485426BD6CA600C19A0F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -460,11 +448,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E20B665426BD5D7E00CA1C1E /* XCRemoteSwiftPackageReference "ListController" */;
 			productName = ListController;
-		};
-		E27B485526BD6CA600C19A0F /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E27B485426BD6CA600C19A0F /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

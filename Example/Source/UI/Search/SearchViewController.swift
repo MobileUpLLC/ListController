@@ -42,10 +42,10 @@ class SearchViewController: TableController<Int, String> {
 
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
-        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
 
+        navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
     }
 }

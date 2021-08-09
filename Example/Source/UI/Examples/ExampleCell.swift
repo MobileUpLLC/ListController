@@ -35,35 +35,33 @@ class ExampleCell: UITableViewCell {
     private func makeContentView() {
         let view = UIView()
 
-        contentView.addSubview(view)
-
-        view.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
-            make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-12)
-        }
-
         let markImage = UIImage(systemName: "chevron.right")
-
         let mark = UIImageView(image: markImage)
         mark.tintColor = .darkGray
 
         let stackView = UIStackView(arrangedSubviews: [nameLabel, mark])
         stackView.axis = .horizontal
 
+        contentView.addSubview(view)
         view.addSubview(stackView)
 
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-            make.leading.equalTo(view.snp.leading)
-            make.trailing.equalTo(view.snp.trailing)
-        }
+        view.translatesAutoresizingMaskIntoConstraints = false
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        mark.translatesAutoresizingMaskIntoConstraints = false
 
-        mark.snp.makeConstraints { make in
-            make.trailing.equalTo(stackView.snp.trailing)
-        }
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+
+            stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+
+            mark.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+        ])
     }
 }
 
