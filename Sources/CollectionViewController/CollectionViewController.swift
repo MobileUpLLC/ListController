@@ -7,9 +7,9 @@
 
 import UIKit
 
-// MARK: - CollectionController
+// MARK: - CollectionViewController
 
-open class CollectionController<SectionItem: Hashable, RowItem: Hashable>: BaseCollectionController<SectionItem, RowItem>, UICollectionViewDelegate {
+open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>: BaseCollectionViewController<SectionItem, RowItem>, UICollectionViewDelegate {
     
     // MARK: - Override methods
     

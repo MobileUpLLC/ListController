@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - BaseCollectionController
 
-open class BaseCollectionController<SectionItem: Hashable, RowItem: Hashable>: BaseListController<SectionItem, RowItem> {
+open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>: BaseListViewController<SectionItem, RowItem> {
     
     // MARK: - Public properties
     

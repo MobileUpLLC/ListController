@@ -7,16 +7,18 @@
 
 import UIKit
 
-// MARK: - BaseListController
+// MARK: - BaseListViewController
 
-open class BaseListController<SectionItem: Hashable, RowItem: Hashable>: UIViewController {
-    
+open class BaseListViewController<SectionItem: Hashable, RowItem: Hashable>: UIViewController {
+
     // MARK: - Public properties
     
     open var defaultCellReuseIdentifier: String { "Cell" }
+    open var defaultHeaderReuseIdentifier: String { "Header" }
+    open var defaultFooterReuseIdentifier: String { "Footer" }
     
     // MARK: - Public methods
-    
+
     /// Setup reusable view with item.
     /// - Parameters:
     ///   - view: View that adopts either Configurable of SenderConfigurable protocol.
@@ -28,15 +30,15 @@ open class BaseListController<SectionItem: Hashable, RowItem: Hashable>: UIViewC
             view.anySetup(with: item)
         }
     }
-    
+
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     open func cellReuseIdentifier(for rowItem: RowItem, at indexPath: IndexPath) -> String {
         return defaultCellReuseIdentifier
     }
