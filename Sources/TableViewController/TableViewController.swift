@@ -26,7 +26,7 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
 
     // MARK: - Public mehtods
 
-    func cellDidSelect(for item: RowItem, at indexPath: IndexPath) {
+    open func cellDidSelect(for item: RowItem, at indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
