@@ -8,9 +8,11 @@
 import UIKit
 import Combine
 
-// MARK: - LoadingTableController
+// MARK: - LoadingTableViewController
 
-open class LoadingTableController<SectionItem: Hashable, RowItem: Hashable>: TableController<SectionItem, RowItem> {
+/// LoadingTableViewController = TableViewController + UIRefreshControl with infinite scroll support. PagingAdapter takes care of the inifite scroll logic.
+
+open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>: TableViewController<SectionItem, RowItem> {
     
     // MARK: - Public properties
     
@@ -20,7 +22,7 @@ open class LoadingTableController<SectionItem: Hashable, RowItem: Hashable>: Tab
     open var pagingConfig: PagingConfig { .default }
     
     open lazy var paginationAdapter = PagingAdapter(scrollView: tableView, superView: view, config: pagingConfig)
-    lazy var refreshControl = UIRefreshControl()
+    open lazy var refreshControl = UIRefreshControl()
     
     // MARK: - Override methods
     
@@ -58,11 +60,12 @@ open class LoadingTableController<SectionItem: Hashable, RowItem: Hashable>: Tab
             paginationAdapter.delegate = self
         }
     }
+    
 }
 
 // MARK: - PaginationAdapterDelegate
 
-extension LoadingTableController: PagingAdapterDelegate {
+extension LoadingTableViewController: PagingAdapterDelegate {
     
     public func pagingAdapterDidRequest(_ adapter: PagingAdapter) {
         pagingDidStartLoading(adapter)
