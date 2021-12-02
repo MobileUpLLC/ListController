@@ -10,7 +10,7 @@ import ListController
 
 // MARK: - SearchViewController
 
-class SearchViewController: TableController<Int, String> {
+class SearchViewController: TableViewController<Int, String> {
     
     // MARK: - Override properties
     

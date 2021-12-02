@@ -10,7 +10,7 @@ import ListController
 
 // MARK: - ExamplesViewController
 
-class ExamplesViewController: TableController<Int, Example> {
+class ExamplesViewController: TableViewController<Int, Example> {
 
     // MARK: - Override properties
 

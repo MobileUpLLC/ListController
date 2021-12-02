@@ -10,7 +10,7 @@ import ListController
 
 // MARK: - TableController
 
-extension TableController {
+extension TableViewController {
 
     // MARK: - Public methods
 
@@ -37,7 +37,7 @@ extension TableController {
 
 // MARK: - TableController
 
-extension TableController where SectionItem == Int {
+extension TableViewController where SectionItem == Int {
 
     // MARK: - Public methods
 

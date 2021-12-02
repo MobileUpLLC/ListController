@@ -18,7 +18,7 @@ enum HeaderFooterItem: Hashable {
 
 // MARK: - HeaderFooterViewController
 
-class HeaderFooterViewController: TableController<Int, HeaderFooterItem> {
+class HeaderFooterViewController: TableViewController<Int, HeaderFooterItem> {
 
     // MARK: - Override properties
 
