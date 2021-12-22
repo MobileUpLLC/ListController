@@ -32,7 +32,7 @@ import ListController
 
      // MARK: - Public properties
      
-     var requestLimit: Int { 20 }
+     var requestLimit: Int { 30 }
 
      // MARK: - Public methods
      

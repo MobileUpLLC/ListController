@@ -25,11 +25,8 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
     
     private let interactor = ExamplePageProvider()
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)
-    
-    // MARK: - Public properties
-
-    var loadingView: UIActivityIndicatorView = UIActivityIndicatorView()
-    var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
+    private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 40, height: 40))
+    private var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
     
     // MARK: - Override methods
     
@@ -38,6 +35,7 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
         
         title = "Pagination"
         
+        setupLoadingView()
         setupTable()
         tableView.register(SearchCell.self, forCellReuseIdentifier: defaultCellReuseIdentifier)
     }
@@ -98,6 +96,20 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
     
     // MARK: - Private methods
     
+    private func setupLoadingView() {
+        view.addSubview(loadingView)
+        loadingView.hidesWhenStopped = true
+        
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        view.bringSubviewToFront(loadingView)
+    }
+    
     private func updateLoadingIndicator() {
         if isLoading == true {
             loadingView.isHidden = false
@@ -109,6 +121,8 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
     }
     
     private func handleError(_ error: Error) {
+        isLoading = false
+        
         UIView.animateKeyframes(withDuration: 1, delay: 0) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
                 self.view.backgroundColor = .red
