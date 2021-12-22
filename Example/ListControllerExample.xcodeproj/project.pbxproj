@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FD150C027733DB1002D042C /* ExamplePagingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */; };
+		8FD150CA277351F1002D042C /* ExamplePageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150C9277351F1002D042C /* ExamplePageProvider.swift */; };
+		8FD150CC277353AC002D042C /* ExampleGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150CB277353AC002D042C /* ExampleGateway.swift */; };
+		8FF050FC27735C560035292B /* LastPageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF050FB27735C560035292B /* LastPageProvider.swift */; };
 		E20B665626BD5D7E00CA1C1E /* ListController in Frameworks */ = {isa = PBXBuildFile; productRef = E20B665526BD5D7E00CA1C1E /* ListController */; };
 		E20B665926BD5E1000CA1C1E /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B665826BD5E1000CA1C1E /* Example.swift */; };
 		E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26EF4BF26BD2DD500E43157 /* AppDelegate.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePagingTableController.swift; sourceTree = "<group>"; };
+		8FD150C9277351F1002D042C /* ExamplePageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePageProvider.swift; sourceTree = "<group>"; };
+		8FD150CB277353AC002D042C /* ExampleGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGateway.swift; sourceTree = "<group>"; };
+		8FF050FB27735C560035292B /* LastPageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageProvider.swift; sourceTree = "<group>"; };
 		E20B665826BD5E1000CA1C1E /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		E26EF4BC26BD2DD500E43157 /* ListControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26EF4BF26BD2DD500E43157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FD150BE27733CAC002D042C /* Pagination */ = {
+			isa = PBXGroup;
+			children = (
+				8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */,
+				8FD150C9277351F1002D042C /* ExamplePageProvider.swift */,
+				8FD150CB277353AC002D042C /* ExampleGateway.swift */,
+				8FF050FB27735C560035292B /* LastPageProvider.swift */,
+			);
+			path = Pagination;
+			sourceTree = "<group>";
+		};
 		E20B665226BD38A800CA1C1E /* Examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +137,7 @@
 				E20B665226BD38A800CA1C1E /* Examples */,
 				E27B485A26BD80E700C19A0F /* Search */,
 				E2A73F8326C114E700346314 /* HeaderFooter */,
+				8FD150BE27733CAC002D042C /* Pagination */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -230,10 +250,14 @@
 				E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */,
 				E27B486626BD92A500C19A0F /* TableController.swift in Sources */,
 				E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */,
+				8FD150C027733DB1002D042C /* ExamplePagingTableController.swift in Sources */,
 				E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */,
+				8FD150CA277351F1002D042C /* ExamplePageProvider.swift in Sources */,
+				8FD150CC277353AC002D042C /* ExampleGateway.swift in Sources */,
 				E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */,
 				E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */,
 				E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */,
+				8FF050FC27735C560035292B /* LastPageProvider.swift in Sources */,
 				E20B665926BD5E1000CA1C1E /* Example.swift in Sources */,
 				E2A73F8526C1152C00346314 /* HeaderFooterViewController.swift in Sources */,
 			);
@@ -437,7 +461,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MobileUpLLC/ListController/";
 			requirement = {
-				kind = upToNextMinorVersion;
+				kind = upToNextMajorVersion;
 				minimumVersion = 1.2.0;
 			};
 		};

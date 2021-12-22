@@ -23,6 +23,7 @@ class ExamplesViewController: TableViewController<Int, Example> {
     private let items: [Example] = [
         Example(name: "Search", controller: SearchViewController.self),
         Example(name: "HeaderFooter", controller: HeaderFooterViewController.self),
+        Example(name: "Pagination", controller: ExamplePagingTableController.self),
     ]
 
     // MARK: - Override methods
