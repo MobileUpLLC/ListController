@@ -1,5 +1,5 @@
 //
-//  ExamplePageProvider.swift
+//  SeasInteractor.swift
 //  ListControllerExample
 //
 //  Created by Vladislav Grokhotov on 22.12.2021.
@@ -8,9 +8,9 @@
 import Foundation
 import ListController
 
-// MARK: - ExamplePageProvider
+// MARK: - SeasInteractor
 
-class ExamplePageProvider: LastPageProvider {
+class SeasInteractor: LimitOffsetPageProvider {    
     
     // MARK: - Types
     
@@ -24,14 +24,14 @@ class ExamplePageProvider: LastPageProvider {
 
     // MARK: - Private properties
     
-    private let gateway = ExampleGateway()
+    private let gateway = SeasGateway()
     
     // MARK: - Public methods
     
-    func getItems(pageIndex: Int, pageSize: Int, completion: @escaping (Result<Page<T>, Error>) -> Void) {
-        gateway.getExamples(page: pageIndex, pageSize: pageSize) { result in
+    func getItems(limit: Int, offset: Int, completion: @escaping (Result<Page<String>, Error>) -> Void) {
+        gateway.getExamples(limit: limit, offset: offset) { result in
             let page = result
-                .map { Page(items: $0.contents, hasMore: $0.hasMore) }
+                .map { Page(items: $0, hasMore: $0.count == limit) }
                 .mapError { $0 as Error }
             completion(page)
         }

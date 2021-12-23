@@ -1,21 +1,21 @@
 //
-//  ExamplePagingTableController.swift
+//  CustomPagingTableViewController.swift
 //  ListControllerExample
 //
-//  Created by Vladislav Grokhotov on 22.12.2021.
+//  Created by Vladislav Grokhotov on 27.12.2021.
 //
 
 import UIKit
 import ListController
 
-// MARK: - ExamplePagingTableController
+// MARK: - CustomPagingTableViewController
 
-class ExamplePagingTableController: PagingTableViewController<ExamplePageProvider, Int, String> {
+class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
+    PagingTableViewController<Provider, SectionItem, RowItem> {
     
     // MARK: - Override properties
     
     override var tableView: UITableView { paginationTableView }
-    override var pageProvider: ExamplePageProvider { interactor }
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     override var rowAnimation: UITableView.RowAnimation { .fade }
     override var hasRefresh: Bool { true }
@@ -23,7 +23,6 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
     
     // MARK: - Private properties
     
-    private let interactor = ExamplePageProvider()
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)
     private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 40, height: 40))
     private var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
@@ -49,7 +48,7 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
         tableView.isHidden = true
     }
     
-    override func handleInitialItems(_ pageResult: PageResult<ExamplePageProvider.T>) {
+    override func handleInitialItems(_ pageResult: PageResult<Provider.T>) {
         super.handleInitialItems(pageResult)
         
         isLoading = false
@@ -76,22 +75,6 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
         super.handlePagingError(error)
         
         handleError(error)
-    }
-    
-    override func map(
-        newItems: [String],
-        allItems: [String]
-    ) -> NSDiffableDataSourceSnapshot<Int, String> {
-        var currentSnapshot = snapshot
-        
-        if newItems.count == allItems.count {
-            currentSnapshot.deleteAllItems()
-            currentSnapshot.appendSections([0])
-        }
-        
-        currentSnapshot.appendItems(newItems, toSection: 0)
-        
-        return currentSnapshot
     }
     
     // MARK: - Private methods
@@ -134,3 +117,4 @@ class ExamplePagingTableController: PagingTableViewController<ExamplePageProvide
     }
 
 }
+

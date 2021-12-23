@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8FD150C027733DB1002D042C /* ExamplePagingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */; };
-		8FD150CA277351F1002D042C /* ExamplePageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150C9277351F1002D042C /* ExamplePageProvider.swift */; };
-		8FD150CC277353AC002D042C /* ExampleGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150CB277353AC002D042C /* ExampleGateway.swift */; };
-		8FF050FC27735C560035292B /* LastPageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF050FB27735C560035292B /* LastPageProvider.swift */; };
-		E20B665626BD5D7E00CA1C1E /* ListController in Frameworks */ = {isa = PBXBuildFile; productRef = E20B665526BD5D7E00CA1C1E /* ListController */; };
+		8F8657F92779DDDE00ED9240 /* PublisherPagingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8657F82779DDDE00ED9240 /* PublisherPagingTableController.swift */; };
+		8F8657FB2779E0A600ED9240 /* CustomPagingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8657FA2779E0A600ED9240 /* CustomPagingTableViewController.swift */; };
+		8FA102FD2775EC4B0022A56E /* ListController in Frameworks */ = {isa = PBXBuildFile; productRef = 8FA102FC2775EC4B0022A56E /* ListController */; };
+		8FA849852775FEC6001B3528 /* PublisherSeasInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA849842775FEC6001B3528 /* PublisherSeasInteractor.swift */; };
+		8FA849872775FFE4001B3528 /* PublisherSeasGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA849862775FFE4001B3528 /* PublisherSeasGateway.swift */; };
+		8FC856FE2778D2DB0081B2B5 /* PagingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC856FD2778D2DB0081B2B5 /* PagingTableController.swift */; };
+		8FD150CA277351F1002D042C /* SeasInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150C9277351F1002D042C /* SeasInteractor.swift */; };
+		8FD150CC277353AC002D042C /* SeasGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD150CB277353AC002D042C /* SeasGateway.swift */; };
+		8FF050FF277376F20035292B /* TabBarPagingTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF050FE277376F20035292B /* TabBarPagingTableController.swift */; };
 		E20B665926BD5E1000CA1C1E /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20B665826BD5E1000CA1C1E /* Example.swift */; };
 		E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26EF4BF26BD2DD500E43157 /* AppDelegate.swift */; };
 		E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26EF4C326BD2DD500E43157 /* ExamplesViewController.swift */; };
@@ -29,10 +33,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePagingTableController.swift; sourceTree = "<group>"; };
-		8FD150C9277351F1002D042C /* ExamplePageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePageProvider.swift; sourceTree = "<group>"; };
-		8FD150CB277353AC002D042C /* ExampleGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleGateway.swift; sourceTree = "<group>"; };
-		8FF050FB27735C560035292B /* LastPageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastPageProvider.swift; sourceTree = "<group>"; };
+		8F8657F82779DDDE00ED9240 /* PublisherPagingTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherPagingTableController.swift; sourceTree = "<group>"; };
+		8F8657FA2779E0A600ED9240 /* CustomPagingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagingTableViewController.swift; sourceTree = "<group>"; };
+		8FA102FA2775EC2C0022A56E /* ListController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ListController; path = ..; sourceTree = "<group>"; };
+		8FA849842775FEC6001B3528 /* PublisherSeasInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherSeasInteractor.swift; sourceTree = "<group>"; };
+		8FA849862775FFE4001B3528 /* PublisherSeasGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherSeasGateway.swift; sourceTree = "<group>"; };
+		8FC856FD2778D2DB0081B2B5 /* PagingTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingTableController.swift; sourceTree = "<group>"; };
+		8FD150C9277351F1002D042C /* SeasInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasInteractor.swift; sourceTree = "<group>"; };
+		8FD150CB277353AC002D042C /* SeasGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasGateway.swift; sourceTree = "<group>"; };
+		8FF050FE277376F20035292B /* TabBarPagingTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPagingTableController.swift; sourceTree = "<group>"; };
 		E20B665826BD5E1000CA1C1E /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
 		E26EF4BC26BD2DD500E43157 /* ListControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E26EF4BF26BD2DD500E43157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,22 +65,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E20B665626BD5D7E00CA1C1E /* ListController in Frameworks */,
+				8FA102FD2775EC4B0022A56E /* ListController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FA102F92775EC2C0022A56E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				8FA102FA2775EC2C0022A56E /* ListController */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		8FA102FB2775EC4B0022A56E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FD150BE27733CAC002D042C /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
-				8FD150BF27733DB1002D042C /* ExamplePagingTableController.swift */,
-				8FD150C9277351F1002D042C /* ExamplePageProvider.swift */,
-				8FD150CB277353AC002D042C /* ExampleGateway.swift */,
-				8FF050FB27735C560035292B /* LastPageProvider.swift */,
+				8FC856FD2778D2DB0081B2B5 /* PagingTableController.swift */,
+				8F8657F82779DDDE00ED9240 /* PublisherPagingTableController.swift */,
+				8F8657FA2779E0A600ED9240 /* CustomPagingTableViewController.swift */,
+				8FD150C9277351F1002D042C /* SeasInteractor.swift */,
+				8FD150CB277353AC002D042C /* SeasGateway.swift */,
+				8FA849842775FEC6001B3528 /* PublisherSeasInteractor.swift */,
+				8FA849862775FFE4001B3528 /* PublisherSeasGateway.swift */,
 			);
 			path = Pagination;
+			sourceTree = "<group>";
+		};
+		8FF050FD277376DC0035292B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8FF050FE277376F20035292B /* TabBarPagingTableController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		E20B665226BD38A800CA1C1E /* Examples */ = {
@@ -107,8 +142,10 @@
 		E26EF4B326BD2DD500E43157 = {
 			isa = PBXGroup;
 			children = (
+				8FA102F92775EC2C0022A56E /* Packages */,
 				E26EF4BE26BD2DD500E43157 /* Source */,
 				E26EF4BD26BD2DD500E43157 /* Products */,
+				8FA102FB2775EC4B0022A56E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +174,7 @@
 				E20B665226BD38A800CA1C1E /* Examples */,
 				E27B485A26BD80E700C19A0F /* Search */,
 				E2A73F8326C114E700346314 /* HeaderFooter */,
+				8FF050FD277376DC0035292B /* TabBar */,
 				8FD150BE27733CAC002D042C /* Pagination */,
 			);
 			path = UI;
@@ -186,7 +224,7 @@
 			);
 			name = ListControllerExample;
 			packageProductDependencies = (
-				E20B665526BD5D7E00CA1C1E /* ListController */,
+				8FA102FC2775EC4B0022A56E /* ListController */,
 			);
 			productName = ListControllerExample;
 			productReference = E26EF4BC26BD2DD500E43157 /* ListControllerExample.app */;
@@ -216,7 +254,6 @@
 			);
 			mainGroup = E26EF4B326BD2DD500E43157;
 			packageReferences = (
-				E20B665426BD5D7E00CA1C1E /* XCRemoteSwiftPackageReference "ListController" */,
 			);
 			productRefGroup = E26EF4BD26BD2DD500E43157 /* Products */;
 			projectDirPath = "";
@@ -247,19 +284,23 @@
 				E27B485C26BD80FF00C19A0F /* SearchViewController.swift in Sources */,
 				E27B486326BD914B00C19A0F /* SearchCell.swift in Sources */,
 				E27B485926BD77E500C19A0F /* ExampleCell.swift in Sources */,
+				8FC856FE2778D2DB0081B2B5 /* PagingTableController.swift in Sources */,
 				E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */,
 				E27B486626BD92A500C19A0F /* TableController.swift in Sources */,
 				E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */,
-				8FD150C027733DB1002D042C /* ExamplePagingTableController.swift in Sources */,
 				E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */,
-				8FD150CA277351F1002D042C /* ExamplePageProvider.swift in Sources */,
-				8FD150CC277353AC002D042C /* ExampleGateway.swift in Sources */,
+				8F8657FB2779E0A600ED9240 /* CustomPagingTableViewController.swift in Sources */,
+				8FD150CA277351F1002D042C /* SeasInteractor.swift in Sources */,
+				8FA849852775FEC6001B3528 /* PublisherSeasInteractor.swift in Sources */,
+				8FD150CC277353AC002D042C /* SeasGateway.swift in Sources */,
+				8F8657F92779DDDE00ED9240 /* PublisherPagingTableController.swift in Sources */,
 				E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */,
 				E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */,
 				E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */,
-				8FF050FC27735C560035292B /* LastPageProvider.swift in Sources */,
 				E20B665926BD5E1000CA1C1E /* Example.swift in Sources */,
+				8FF050FF277376F20035292B /* TabBarPagingTableController.swift in Sources */,
 				E2A73F8526C1152C00346314 /* HeaderFooterViewController.swift in Sources */,
+				8FA849872775FFE4001B3528 /* PublisherSeasGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,21 +497,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		E20B665426BD5D7E00CA1C1E /* XCRemoteSwiftPackageReference "ListController" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MobileUpLLC/ListController/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		E20B665526BD5D7E00CA1C1E /* ListController */ = {
+		8FA102FC2775EC4B0022A56E /* ListController */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E20B665426BD5D7E00CA1C1E /* XCRemoteSwiftPackageReference "ListController" */;
 			productName = ListController;
 		};
 /* End XCSwiftPackageProductDependency section */
