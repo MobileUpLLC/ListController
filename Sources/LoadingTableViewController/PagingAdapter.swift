@@ -13,14 +13,14 @@ public struct PagingConfig {
     
     // MARK: - Public properties
     
-    public let isRetryEnabled: Bool
+    let isRetryEnabled: Bool
     
-    public let requestTriggerHeight: CGFloat
-    public let retryTriggerHeight: CGFloat
+    let requestTriggerHeight: CGFloat
+    let retryTriggerHeight: CGFloat
     
-    public let loadingHeight: CGFloat
+    let loadingHeight: CGFloat
     
-    public let isDisableOnEndItems: Bool
+    let isDisableOnEndItems: Bool
     
     public static let `default` = Self(
         isRetryEnabled: true,
