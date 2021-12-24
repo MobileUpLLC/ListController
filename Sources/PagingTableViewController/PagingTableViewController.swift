@@ -40,6 +40,8 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     // MARK: Initial Items
     
     open func requestInitialItems() {
+        paginationAdapter.isEnabled = false
+        
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
             case .success(let pageResult):
@@ -56,6 +58,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         apply(newSnapshot, animating: false)
         
         paginationAdapter.isEnabled = pageResult.hasMore
+        paginationAdapter.updateOnScroll()
     }
     
     open func handleInitialError(_ error: Error) { }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - PagingConfig
+
 public struct PagingConfig {
     
     // MARK: - Public properties
@@ -20,13 +22,27 @@ public struct PagingConfig {
     
     let isDisableOnEndItems: Bool
     
-    static let `default` = Self(
+    public static let `default` = Self(
         isRetryEnabled: true,
         requestTriggerHeight: 100,
         retryTriggerHeight: 100,
         loadingHeight: 60,
         isDisableOnEndItems: true
     )
+    
+    public init(
+        isRetryEnabled: Bool,
+        requestTriggerHeight: CGFloat,
+        retryTriggerHeight: CGFloat,
+        loadingHeight: CGFloat,
+        isDisableOnEndItems: Bool
+    ) {
+        self.isRetryEnabled = isRetryEnabled
+        self.requestTriggerHeight = requestTriggerHeight
+        self.retryTriggerHeight = retryTriggerHeight
+        self.loadingHeight = loadingHeight
+        self.isDisableOnEndItems = isDisableOnEndItems
+    }
 }
 
 // MARK: - PagingAdapterDelegate
