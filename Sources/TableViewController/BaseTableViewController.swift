@@ -16,7 +16,7 @@ open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>: Ba
     open var tableView: UITableView { fatalError() }
     open var rowAnimation: UITableView.RowAnimation { .automatic }
 
-    lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
+    public lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
         tableView: tableView,
         cellProvider: { [weak self] (tableView, indexPath, item) -> UITableViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
