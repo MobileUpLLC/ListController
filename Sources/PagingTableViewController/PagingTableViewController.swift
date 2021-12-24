@@ -58,7 +58,6 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         apply(newSnapshot, animating: false)
         
         paginationAdapter.isEnabled = pageResult.hasMore
-        
         paginationAdapter.updateOnScroll()
     }
     
