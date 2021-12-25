@@ -56,11 +56,11 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         return view
     }
 
-    func headerIdentifier(for sectionItem: SectionItem, at sectionIndex: Int) -> String? {
+    open func headerIdentifier(for sectionItem: SectionItem, at sectionIndex: Int) -> String? {
         return nil
     }
 
-    func footerIdentifier(for sectionItem: SectionItem, at sectionIndex: Int) -> String? {
+    open func footerIdentifier(for sectionItem: SectionItem, at sectionIndex: Int) -> String? {
         return nil
     }
     
@@ -103,16 +103,16 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         return UITableView.automaticDimension
     }
     
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
     
-    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return UITableView.automaticDimension
     }
     
     // MARK: - UIScrollViewDelegate
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) { }
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }
 
