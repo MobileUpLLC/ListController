@@ -73,26 +73,27 @@ extension UIView {
 
     func layoutSubview(
         _ view: UIView,
-        with insets: LayoutInsets = .zero
+        with insets: LayoutInsets = .zero,
+        safe: Bool = false
     ) {
         addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
 
         if let top = insets.top {
-            view.topAnchor.constraint(equalTo: topAnchor, constant: top).isActive = true
+            view.topAnchor.makeConstraint(equalTo: getTopAnchor(safe: safe), constant: top)
         }
 
         if let left = insets.left {
-            view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: left).isActive = true
+            view.leadingAnchor.makeConstraint(equalTo: getLeadingAnchor(safe: safe), constant: left)
         }
 
         if let bottom = insets.bottom {
-            view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottom).isActive = true
+            view.bottomAnchor.makeConstraint(equalTo: getBottomAnchor(safe: safe), constant: -bottom)
         }
 
         if let right = insets.right {
-            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -right).isActive = true
+            view.trailingAnchor.makeConstraint(equalTo: getTrailingAnchor(safe: safe), constant: -right)
         }
     }
 
@@ -110,5 +111,39 @@ extension UIView {
         if let width = width {
             widthAnchor.constraint(equalToConstant: width).isActive = true
         }
+    }
+}
+
+// MARK: - Anchors
+
+extension UIView {
+
+    // MARK: - Public methods
+    
+    func getTopAnchor(safe: Bool) -> NSLayoutYAxisAnchor {
+        return safe ? safeAreaLayoutGuide.topAnchor : topAnchor
+    }
+
+    func getBottomAnchor(safe: Bool) -> NSLayoutYAxisAnchor {
+        return safe ? safeAreaLayoutGuide.bottomAnchor : bottomAnchor
+    }
+
+    func getLeadingAnchor(safe: Bool) -> NSLayoutXAxisAnchor {
+        return safe ? safeAreaLayoutGuide.leadingAnchor : leadingAnchor
+    }
+
+    func getTrailingAnchor(safe: Bool) -> NSLayoutXAxisAnchor {
+        return safe ? safeAreaLayoutGuide.trailingAnchor : trailingAnchor
+    }
+}
+
+// MARK: - NSLayoutAnchor
+
+extension NSLayoutAnchor {
+
+    // MARK: - Public methods
+    
+    @objc func makeConstraint(equalTo anchor: NSLayoutAnchor, constant: CGFloat) {
+        constraint(equalTo: anchor, constant: constant).isActive = true
     }
 }

@@ -24,7 +24,9 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
     // MARK: - Private properties
     
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)
-    private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 40, height: 40))
+    private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(
+        frame: .init(x: 0, y: 0, width: 40, height: 40)
+    )
     private var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
     
     // MARK: - Override methods
@@ -35,8 +37,16 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
         title = "Pagination"
         
         setupLoadingView()
-        setupTable()
+        setupPaginationTableView()
         tableView.register(SearchCell.self, forCellReuseIdentifier: defaultCellReuseIdentifier)
+    }
+    
+    private func setupPaginationTableView() {
+        setupTable()
+        
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: Initial Items
@@ -115,6 +125,4 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
             })
         }
     }
-
 }
-
