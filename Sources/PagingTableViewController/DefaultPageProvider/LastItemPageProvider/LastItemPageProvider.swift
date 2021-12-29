@@ -2,14 +2,14 @@
 //  LastItemPageProvider.swift
 //  ListController
 //
-//  Created by Nikolai Timonin on 31.05.2021.
+//  Created by Vladislav Grokhotov on 24.12.2021.
 //
 
-import Combine
+import Foundation
 
 // MARK: - LastItemPageProvider
 
-public protocol LastItemPageProvider: PublisherPageProvider {
+public protocol LastItemPageProvider: PageProvider, AnyObject {
     
     // MARK: - Public properties
     
@@ -17,7 +17,7 @@ public protocol LastItemPageProvider: PublisherPageProvider {
     
     // MARK: - Public methods
     
-    func getItems(last: T?) -> AnyPublisher<Page<T>, Error>
+    func getItems(last: T?, completion: @escaping (Result<Page<T>, Error>) -> Void)
 }
 
 // MARK: - LastItemPageProvider + Default Implementation
@@ -26,26 +26,24 @@ public extension LastItemPageProvider {
     
     // MARK: - Public methods
     
-    func getFirstPage() -> AnyPublisher<PageResult<T>, Error> {
-        return getItems(last: nil)
-            .handleEvents(receiveOutput: { [weak self] (page) in
+    func getFirstPage(_ completion: @escaping Completion) {
+        getItems(last: nil) { [weak self] page in
+            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
                 self?.resetAllItems(page.items)
-            })
-            .map { [weak self] (page) -> PageResult<T> in
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }
-            .eraseToAnyPublisher()
+            completion(pageResult)
+        }
     }
     
-    func getNextPage() -> AnyPublisher<PageResult<T>, Error> {
-        return getItems(last: allItems.last)
-            .handleEvents(receiveOutput: { [weak self] (page) in
+    func getNextPage(_ completion: @escaping Completion) {
+        getItems(last: allItems.last) { [weak self] page in
+            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
                 self?.appendNewItems(page.items)
-            })
-            .map { [weak self] (page) -> PageResult<T> in
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }
-            .eraseToAnyPublisher()
+            completion(pageResult)
+        }
     }
     
     func appendNewItems(_ items: [T]) {
