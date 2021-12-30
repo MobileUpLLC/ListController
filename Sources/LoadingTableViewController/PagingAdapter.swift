@@ -179,7 +179,8 @@ open class PagingAdapter {
     private func setupPageLoadingView() {
         scrollViewSuperView.layoutSubview(
             pageLoadingView,
-            with: .insets(top: nil, left: 0, bottom: 0, right: 0)
+            with: .insets(top: nil, left: 0, bottom: 0, right: 0),
+            safe: true
         )
         pageLoadingView.layoutSize(height: containerHeight)
         
