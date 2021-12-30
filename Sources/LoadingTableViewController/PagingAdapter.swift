@@ -174,6 +174,15 @@ open class PagingAdapter {
         pageLoadingView.showMessage(msg)
     }
     
+    open func updateItems(_ completion: (@escaping () -> Void) -> Void) {
+        pageLoadingView.isHidden = true
+        
+        completion() {
+            self.pageLoadingView.isHidden = false
+            self.startWaiting()
+        }
+    }
+    
     // MARK: - Private methods
     
     private func setupPageLoadingView() {

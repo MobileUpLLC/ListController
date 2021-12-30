@@ -107,9 +107,12 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     open func handlePagingItems(_ pageResult: PageResult<Provider.T>) {
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
         
-        apply(newSnapshot) { [paginationAdapter] in
-            paginationAdapter.startWaiting()
-            paginationAdapter.isEnabled = pageResult.hasMore
+        paginationAdapter.updateItems { complete in
+            apply(newSnapshot) { [paginationAdapter] in
+                complete()
+                
+                paginationAdapter.isEnabled = pageResult.hasMore
+            }
         }
     }
     
