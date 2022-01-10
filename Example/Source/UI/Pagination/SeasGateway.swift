@@ -10,6 +10,11 @@ import Foundation
 // MARK: - SeasGateway
 
 final class SeasGateway {
+    
+    enum Error: Swift.Error {
+        
+        case unknown
+    }
 
     // MARK: - Public methods
 
@@ -18,12 +23,13 @@ final class SeasGateway {
         offset: Int,
         completion: @escaping (Result<[String], Error>) -> Void
     ) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            var endIndex = offset + limit
-            if endIndex > seas.count {
-                endIndex = seas.count
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if offset == 0 || Int.random(in: 0..<10) < 5 {
+                let endIndex = min(offset + limit, seas.count)
+                completion(Result.success(Array(seas[offset..<endIndex])))
+            } else {
+                completion(Result.failure(Error.unknown))
             }
-            completion(Result.success(Array(seas[offset..<endIndex])))
         }
     }
 }
