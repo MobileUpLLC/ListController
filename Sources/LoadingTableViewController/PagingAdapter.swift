@@ -80,12 +80,11 @@ open class PagingAdapter {
     
     public let config: PagingConfig
     
-    public var isEnabled: Bool {
-        get { _isEnabled }
-        set {
-            if newValue == true && _isEnabled == false {
+    public var isEnabled: Bool = false {
+        didSet {
+            if isEnabled && oldValue == false {
                 enable()
-            } else if newValue == false && _isEnabled == true {
+            } else if isEnabled == false && oldValue == true {
                 disable()
             }
         }
@@ -94,7 +93,6 @@ open class PagingAdapter {
     // MARK: - Private properties
     
     private var state: State = .hidden
-    private var _isEnabled: Bool = false
     
     private var isRetryEnabled: Bool { config.isRetryEnabled }
     private var containerHeight: CGFloat { config.loadingHeight }
@@ -208,15 +206,11 @@ open class PagingAdapter {
     }
     
     private func disable() {
-        _isEnabled = false
-        
         scrollView.contentInset.bottom -= containerHeight
         pageLoadingView.isHidden = true
     }
     
     private func enable() {
-        _isEnabled = true
-        
         scrollView.contentInset.bottom += containerHeight
         pageLoadingView.isHidden = false
     }

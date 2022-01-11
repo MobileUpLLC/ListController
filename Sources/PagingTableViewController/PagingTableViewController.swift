@@ -112,9 +112,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         }
     }
     
-    open func handlePagingError(_ error: Error) {
-        paginationAdapter.showMessage("Ooops :(")
-    }
+    open func handlePagingError(_ error: Error) { }
     
     open func map(
         newItems: [Provider.T],
