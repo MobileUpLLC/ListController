@@ -36,7 +36,7 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
     open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         
-        paginationAdapter.updateOnScroll()
+        paginationAdapter.updateOnScrollPosition()
     }
     
     // MARK: - Public methods
@@ -50,7 +50,11 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
     private func setupRefreshControl() {
         if hasRefresh {
             tableView.refreshControl = refreshControl
-            tableView.refreshControl?.addTarget(self, action: #selector(Self.refreshDidStartLoading), for: .valueChanged)
+            tableView.refreshControl?.addTarget(
+                self,
+                action: #selector(Self.refreshDidStartLoading),
+                for: .valueChanged
+            )
         }
     }
     
@@ -60,7 +64,6 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
             paginationAdapter.delegate = self
         }
     }
-    
 }
 
 // MARK: - PaginationAdapterDelegate

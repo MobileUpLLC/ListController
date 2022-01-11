@@ -59,13 +59,16 @@ open class PagingAdapter {
     
     private enum State {
         
-        // not visible for user
+        // Just hidden.
+        case hidden
+        
+        // Not hidden but flutten by table bottom offset. Will be visible for user only on .loading state.
         case waiting
         
-        // visible for user and loading
+        // Visible for user on negative table bottom offset and animating loading.
         case loading
         
-        // visible for user and messaging
+        // Visible for user on negative table bottom offset and messaging
         case message
         
         var isLoading: Bool { self == .loading }
@@ -77,12 +80,11 @@ open class PagingAdapter {
     
     public let config: PagingConfig
     
-    public var isEnabled: Bool {
-        get { pageLoadingView.isHidden == false }
-        set {
-            if newValue == true && pageLoadingView.isHidden {
+    public var isEnabled: Bool = false {
+        didSet {
+            if isEnabled && oldValue == false {
                 enable()
-            } else if newValue == false && pageLoadingView.isHidden == false {
+            } else if isEnabled == false && oldValue == true {
                 disable()
             }
         }
@@ -90,7 +92,7 @@ open class PagingAdapter {
     
     // MARK: - Private properties
     
-    private var state: State = .waiting
+    private var state: State = .hidden
     
     private var isRetryEnabled: Bool { config.isRetryEnabled }
     private var containerHeight: CGFloat { config.loadingHeight }
@@ -115,18 +117,16 @@ open class PagingAdapter {
         setupPageLoadingView()
     }
 
-    open func updateOnScroll() {
+    open func updateOnScrollPosition() {
         guard isEnabled else { return }
         
         // Positive if content over scroll bottom line.
         // Negative if content fully visible.
         let bottomVerticalContentOffset = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height)
         
-        
         // Loading view Layout
         let loadingViewHeight = abs(min(0, bottomVerticalContentOffset))
         pageLoadingView.findConstraint(type: .height)?.constant = loadingViewHeight
-        
         
         // Request
         if bottomVerticalContentOffset > requestTriggerHeight {
@@ -137,9 +137,7 @@ open class PagingAdapter {
             if state.isLoading == false {
                 isReadyToRequest = false
                 
-                state = .loading
-                pageLoadingView.startLoading()
-                
+                startLoading()
                 delegate?.pagingAdapterDidRequest(self)
             }
         }
@@ -154,27 +152,47 @@ open class PagingAdapter {
                 if state.isLoading == false {
                     isReadyToRetry = false
                     
-                    state = .loading
-                    pageLoadingView.startLoading()
-                    
+                    startLoading()
                     delegate?.pagingAdapterDidRetry(self)
                 }
             }
         }
     }
     
+    open func hide() {
+        guard isEnabled else { return }
+        
+        state = .hidden
+        pageLoadingView.isHidden = true
+    }
+
     /// Should be called after table view updates
     open func startWaiting() {
+        guard isEnabled else { return }
+        
         state = .waiting
-        updateOnScroll()
+        pageLoadingView.isHidden = false
+        updateOnScrollPosition()
     }
     
+    /// Should be called on paging error
     open func showMessage(_ msg: String) {
+        guard isEnabled else { return }
+        
         state = .message
+        pageLoadingView.isHidden = false
         pageLoadingView.showMessage(msg)
     }
     
     // MARK: - Private methods
+    
+    private func startLoading() {
+        guard isEnabled else { return }
+        
+        state = .loading
+        pageLoadingView.isHidden = false
+        pageLoadingView.startLoading()
+    }
     
     private func setupPageLoadingView() {
         scrollViewSuperView.layoutSubview(

@@ -84,7 +84,7 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
     override func handlePagingError(_ error: Error) {
         super.handlePagingError(error)
         
-        handleError(error)
+        paginationAdapter.showMessage("Error: \(error)")
     }
     
     // MARK: - Private methods

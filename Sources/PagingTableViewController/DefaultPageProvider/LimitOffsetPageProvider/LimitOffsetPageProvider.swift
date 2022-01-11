@@ -38,7 +38,7 @@ public extension LimitOffsetPageProvider {
     // MARK: - Public methods
     
     func getFirstPage(_ completion: @escaping Completion) {
-        getItems(limit: requestLimit, offset: requestOffset) { [weak self] page in
+        getItems(limit: requestLimit, offset: 0) { [weak self] page in
             let pageResult = page.map { [weak self] (page) -> PageResult<T> in
                 self?.resetAllItems(page.items)
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)

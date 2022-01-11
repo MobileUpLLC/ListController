@@ -40,7 +40,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     // MARK: Initial Items
     
     open func requestInitialItems() {
-        paginationAdapter.isEnabled = false
+        paginationAdapter.hide()
         
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
@@ -57,8 +57,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
         apply(newSnapshot, animating: false)
         
-        paginationAdapter.isEnabled = pageResult.hasMore
-        paginationAdapter.updateOnScroll()
+        startWaitingPage(isEnabled: pageResult.hasMore)
     }
     
     open func handleInitialError(_ error: Error) { }
@@ -81,9 +80,9 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         refreshControl.endRefreshing()
         
         let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
-        apply(newSnapshot)
+        apply(newSnapshot, animating: false)
         
-        paginationAdapter.isEnabled = pageResult.hasMore
+        startWaitingPage(isEnabled: pageResult.hasMore)
     }
     
     open func handleRefreshError(_ error: Error) {
@@ -105,22 +104,27 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     }
     
     open func handlePagingItems(_ pageResult: PageResult<Provider.T>) {
-        let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
+        paginationAdapter.hide()
         
-        apply(newSnapshot) { [paginationAdapter] in
-            paginationAdapter.startWaiting()
-            paginationAdapter.isEnabled = pageResult.hasMore
+        let newSnapshot = map(newItems: pageResult.newItems, allItems: pageResult.allItems)
+        apply(newSnapshot) { [weak self] in
+            self?.startWaitingPage(isEnabled: pageResult.hasMore)
         }
     }
     
-    open func handlePagingError(_ error: Error) {
-        paginationAdapter.showMessage("Ooops :(")
-    }
+    open func handlePagingError(_ error: Error) { }
     
     open func map(
         newItems: [Provider.T],
         allItems: [Provider.T]
     ) -> NSDiffableDataSourceSnapshot<SectionItem, RowItem> {
         fatalError()
+    }
+    
+    // MARK: - Private methods
+    
+    private func startWaitingPage(isEnabled: Bool) {
+        paginationAdapter.isEnabled = isEnabled
+        paginationAdapter.startWaiting()
     }
 }
