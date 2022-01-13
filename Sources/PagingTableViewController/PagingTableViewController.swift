@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - PagingTableViewController
 
 open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     LoadingTableViewController<SectionItem, RowItem> {
@@ -15,12 +16,20 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     
     open var pageProvider: Provider { fatalError() }
     
+    // MARK: - Private properties
+    
+    private var isRequestedInitialItems = false
+    
     // MARK: - Override methods
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        requestInitialItems()
+        if isRequestedInitialItems == false {
+            isRequestedInitialItems = true
+            
+            requestInitialItems()
+        }
     }
     
     open override func pagingDidStartLoading(_ adapter: PagingAdapter) {
