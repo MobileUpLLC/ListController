@@ -58,4 +58,3 @@ public extension SenderConfigurable {
         setup(with: obj, sender: sen)
     }
 }
-

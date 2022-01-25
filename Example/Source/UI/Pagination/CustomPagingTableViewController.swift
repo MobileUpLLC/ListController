@@ -20,7 +20,7 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
     override var rowAnimation: UITableView.RowAnimation { .fade }
     override var hasRefresh: Bool { true }
     override var hasPagination: Bool { true }
-    
+
     // MARK: - Private properties
     
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)

@@ -5,7 +5,6 @@
 //  Created by Vladislav Grokhotov on 24.12.2021.
 //
 
-
 import Combine
 
 // MARK: - PublisherLastItemPageProvider
@@ -33,4 +32,3 @@ public extension PublisherLastItemPageProvider {
             .store(in: &subscribes)
     }
 }
-

@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: - BaseCollectionController
 
-open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>: BaseListViewController<SectionItem, RowItem> {
+open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseListViewController<SectionItem, RowItem> {
     
     // MARK: - Public properties
     
@@ -17,7 +18,7 @@ open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable
     
     lazy var dataSource = UICollectionViewDiffableDataSource<SectionItem, RowItem>(
         collectionView: collectionView,
-        cellProvider: { [weak self] (collection, indexPath, item) -> UICollectionViewCell? in
+        cellProvider: { [weak self] (_, indexPath, item) -> UICollectionViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
         }
     )

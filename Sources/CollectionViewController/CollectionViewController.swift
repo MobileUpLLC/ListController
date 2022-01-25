@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: - CollectionViewController
 
-open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>: BaseCollectionViewController<SectionItem, RowItem>, UICollectionViewDelegate {
+open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseCollectionViewController<SectionItem, RowItem>, UICollectionViewDelegate {
     
     // MARK: - Override methods
     
@@ -36,4 +37,3 @@ open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>: B
         cellDidSelect(for: item, at: indexPath)
     }
 }
-

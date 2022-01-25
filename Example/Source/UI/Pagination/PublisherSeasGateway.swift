@@ -18,16 +18,12 @@ final class PublisherSeasGateway {
         limit: Int,
         offset: Int
     ) -> AnyPublisher<[String], Error> {
-        var endIndex = offset + limit
-        if endIndex > seas.count {
-            endIndex = seas.count
-        }
+        let endIndex = min(offset + limit, seas.count)
         
-        return Array(seas[offset..<endIndex])
-            .publisher
-            .collect()
-            .delay(for: .seconds(1), scheduler: RunLoop.main)
-            .mapError { $0 as Error }
-            .eraseToAnyPublisher()
+        return Future { promise in
+            promise(.success(Array(seas[offset..<endIndex])))
+        }
+        .delay(for: .seconds(1), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
     }
 }

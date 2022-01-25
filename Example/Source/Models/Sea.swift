@@ -195,5 +195,5 @@ let seas = [
     "Whirlpool Rapids",
     "White Sea",
     "Wilsons Rip",
-    "Yellow Sea",
+    "Yellow Sea"
 ]

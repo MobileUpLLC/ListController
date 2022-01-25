@@ -9,7 +9,8 @@ import UIKit
 
 // MARK: - BaseTableViewController
 
-open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseListViewController<SectionItem, RowItem> {
+open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseListViewController<SectionItem, RowItem> {
 
     // MARK: - Public properties
 
@@ -18,7 +19,7 @@ open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>: Ba
 
     public lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
         tableView: tableView,
-        cellProvider: { [weak self] (tableView, indexPath, item) -> UITableViewCell? in
+        cellProvider: { [weak self] (_, indexPath, item) -> UITableViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
         }
     )

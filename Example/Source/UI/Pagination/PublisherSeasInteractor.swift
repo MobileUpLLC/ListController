@@ -38,4 +38,3 @@ class PublisherSeasInteractor: PublisherLimitOffsetPageProvider {
             .eraseToAnyPublisher()
     }
 }
-

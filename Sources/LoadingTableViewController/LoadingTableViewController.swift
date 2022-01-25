@@ -10,9 +10,11 @@ import Combine
 
 // MARK: - LoadingTableViewController
 
-/// LoadingTableViewController = TableViewController + UIRefreshControl with infinite scroll support. PagingAdapter takes care of the inifite scroll logic.
+/// LoadingTableViewController = TableViewController + UIRefreshControl with infinite scroll support.
+/// PagingAdapter takes care of the inifite scroll logic.
 
-open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>: TableViewController<SectionItem, RowItem> {
+open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
+    TableViewController<SectionItem, RowItem> {
     
     // MARK: - Public properties
     

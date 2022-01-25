@@ -122,7 +122,9 @@ open class PagingAdapter {
         
         // Positive if content over scroll bottom line.
         // Negative if content fully visible.
+        // swiftlint:disable line_length
         let bottomVerticalContentOffset = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height)
+        // swiftlint:enable line_length
         
         // Loading view Layout
         let loadingViewHeight = abs(min(0, bottomVerticalContentOffset))

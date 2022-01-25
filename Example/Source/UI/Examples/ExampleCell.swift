@@ -60,7 +60,7 @@ class ExampleCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            mark.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            mark.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
         ])
     }
 }

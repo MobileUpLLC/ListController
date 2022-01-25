@@ -44,4 +44,3 @@ public extension Configurable {
         setup(with: obj)
     }
 }
-
