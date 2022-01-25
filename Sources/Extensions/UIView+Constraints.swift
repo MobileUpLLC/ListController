@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: - UIView
-
 extension UIView {
 
     func findConstraint(type: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
@@ -40,21 +38,15 @@ extension UIView {
     }
 }
 
-// MARK: - LayoutInsets
-
 struct LayoutInsets {
-
-    // MARK: Public properties
-
+    
     static var zero: LayoutInsets { self.init(top: 0, left: 0, bottom: 0, right: 0) }
 
     public var top: CGFloat?
     public var left: CGFloat?
     public var bottom: CGFloat?
     public var right: CGFloat?
-
-    // MARK: Public methods
-
+    
     static func insets(
         top: CGFloat? = 0,
         left: CGFloat? = 0,
@@ -65,12 +57,8 @@ struct LayoutInsets {
     }
 }
 
-// MARK: - UIView
-
 extension UIView {
-
-    // MARK: - Public methods
-
+    
     func layoutSubview(
         _ view: UIView,
         with insets: LayoutInsets = .zero,
@@ -114,12 +102,8 @@ extension UIView {
     }
 }
 
-// MARK: - Anchors
-
 extension UIView {
-
-    // MARK: - Public methods
-    
+        
     func getTopAnchor(safe: Bool) -> NSLayoutYAxisAnchor {
         return safe ? safeAreaLayoutGuide.topAnchor : topAnchor
     }
@@ -137,12 +121,8 @@ extension UIView {
     }
 }
 
-// MARK: - NSLayoutAnchor
-
 extension NSLayoutAnchor {
-
-    // MARK: - Public methods
-    
+        
     @objc func makeConstraint(equalTo anchor: NSLayoutAnchor, constant: CGFloat) {
         constraint(equalTo: anchor, constant: constant).isActive = true
     }

@@ -13,21 +13,15 @@
 
 import UIKit
 
-// MARK: - TableViewController
-
 open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
     BaseTableViewController<SectionItem, RowItem>, UITableViewDelegate {
-
-    // MARK: - Override methods
-
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
     }
-
-    // MARK: - Public mehtods
-
+    
     open func cellDidSelect(for item: RowItem, at indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -74,8 +68,6 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         return item
     }
     
-    // MARK: - UITableViewDelegate
-
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else {
             assertionFailure("Don't find item of type: `\(RowItem.self)` for index path: \(indexPath)")
@@ -113,7 +105,5 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         return UITableView.automaticDimension
     }
     
-    // MARK: - UIScrollViewDelegate
-
     open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }

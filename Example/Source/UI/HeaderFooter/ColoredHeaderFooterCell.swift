@@ -8,22 +8,14 @@
 import UIKit
 import ListController
 
-// MARK: - ColoredHeaderCell
-
 class ColoredHeaderFooterCell: UITableViewCell {
-
-    // MARK: - Public properties
-
+    
     static let reuseId = "ColoredHeaderFooterCell"
-
-    // MARK: - Public methods
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Override methods
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -31,12 +23,8 @@ class ColoredHeaderFooterCell: UITableViewCell {
     }
 }
 
-// MARK: - Configurable
-
 extension ColoredHeaderFooterCell: Configurable {
-
-    // MARK: - Public methods
-
+    
     func setup(with item: HeaderFooterItem) {
         switch item {
         case .header(let title), .footer(let title):

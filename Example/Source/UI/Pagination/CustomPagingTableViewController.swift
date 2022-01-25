@@ -8,29 +8,21 @@
 import UIKit
 import ListController
 
-// MARK: - CustomPagingTableViewController
-
 class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     PagingTableViewController<Provider, SectionItem, RowItem> {
-    
-    // MARK: - Override properties
-    
+        
     override var tableView: UITableView { paginationTableView }
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
     override var rowAnimation: UITableView.RowAnimation { .fade }
     override var hasRefresh: Bool { true }
     override var hasPagination: Bool { true }
-
-    // MARK: - Private properties
-    
+        
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)
     private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(
         frame: .init(x: 0, y: 0, width: 40, height: 40)
     )
     private var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
-    
-    // MARK: - Override methods
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,17 +32,7 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
         setupPaginationTableView()
         tableView.register(SearchCell.self, forCellReuseIdentifier: defaultCellReuseIdentifier)
     }
-    
-    private func setupPaginationTableView() {
-        setupTable()
         
-        tableView.sectionHeaderHeight = 0
-        tableView.sectionFooterHeight = 0
-        tableView.tableFooterView = UIView()
-    }
-    
-    // MARK: Initial Items
-    
     override func requestInitialItems() {
         super.requestInitialItems()
         
@@ -70,25 +52,19 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
         
         handleError(error)
     }
-    
-    // MARK: Refresh Items
-    
+        
     override func handleRefreshError(_ error: Error) {
         super.handleRefreshError(error)
         
         handleError(error)
     }
- 
-    // MARK: Next Page Items
-    
+        
     override func handlePagingError(_ error: Error) {
         super.handlePagingError(error)
         
         paginationAdapter.showMessage("Error: \(error)")
     }
-    
-    // MARK: - Private methods
-    
+        
     private func setupLoadingView() {
         view.addSubview(loadingView)
         loadingView.hidesWhenStopped = true
@@ -124,5 +100,13 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
                 self.view.backgroundColor = .white
             })
         }
+    }
+    
+    private func setupPaginationTableView() {
+        setupTable()
+        
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        tableView.tableFooterView = UIView()
     }
 }

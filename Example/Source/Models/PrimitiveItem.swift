@@ -7,17 +7,11 @@
 
 import Foundation
 
-// MARK: - PrimitiveItem
-
 struct PrimitiveItem: Identifiable, Hashable {
-
-    // MARK: Public properties
-
+    
     var id: String { String(describing: value) }
     let value: CustomStringConvertible
-
-    // MARK: - Public methods
-
+    
     static func == (lhs: PrimitiveItem, rhs: PrimitiveItem) -> Bool {
         return lhs.id == rhs.id
     }

@@ -8,12 +8,8 @@
 import Foundation
 import Combine
 
-// MARK: - SeasGateway
-
 final class PublisherSeasGateway {
-
-    // MARK: - Public methods
-
+    
     func getExamples(
         limit: Int,
         offset: Int

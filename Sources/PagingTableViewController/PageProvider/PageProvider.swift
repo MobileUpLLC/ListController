@@ -7,18 +7,12 @@
 
 import Foundation
 
-// MARK: - PageResult
-
 public struct PageResult<T> {
-    
-    // MARK: - Public properties
-    
+        
     public let newItems: [T]
     public let allItems: [T]
     public let hasMore: Bool
-
-    // MARK: - Public methods
-
+    
     public init(newItems: [T], allItems: [T], hasMore: Bool) {
         self.newItems = newItems
         self.allItems = allItems
@@ -26,18 +20,12 @@ public struct PageResult<T> {
     }
 }
 
-// MARK: - PageProvider
-
 public protocol PageProvider {
-    
-    // MARK: - Types
-    
+        
     associatedtype T
     
     typealias Completion = (Result<PageResult<T>, Error>) -> Void
-    
-    // MARK: - Public methods
-    
+        
     func getFirstPage( _ completion: @escaping Completion)
     func getNextPage(_ completion: @escaping Completion)
 }

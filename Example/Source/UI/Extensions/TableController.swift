@@ -8,12 +8,8 @@
 import UIKit
 import ListController
 
-// MARK: - TableController
-
 extension TableViewController {
-
-    // MARK: - Public methods
-
+    
     func setupTable(separatorStyle: UITableViewCell.SeparatorStyle = .singleLine) {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
@@ -35,12 +31,8 @@ extension TableViewController {
     }
 }
 
-// MARK: - TableController
-
 extension TableViewController where SectionItem == Int {
-
-    // MARK: - Public methods
-
+    
     func apply(items: [RowItem], animated: Bool = false) {
         var snapshot = snapshot
 

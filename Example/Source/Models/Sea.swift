@@ -7,16 +7,10 @@
 
 import Foundation
 
-// MARK: - Sea
-
 struct Sea: Hashable {
-
-    // MARK: - Public properties
-
+    
     let title: String
 }
-
-// MARK: - seas list
 
 let seas = [
     "Adriatic Sea",

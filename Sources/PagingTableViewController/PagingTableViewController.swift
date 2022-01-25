@@ -7,21 +7,13 @@
 
 import UIKit
 
-// MARK: - PagingTableViewController
-
 open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     LoadingTableViewController<SectionItem, RowItem> {
-    
-    // MARK: - Public properties
-    
+        
     open var pageProvider: Provider { fatalError() }
-    
-    // MARK: - Private properties
-    
+        
     private var isRequestedInitialItems = false
-    
-    // MARK: - Override methods
-    
+        
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -43,11 +35,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         
         requestRefreshItems()
     }
-    
-    // MARK: - Public methods
-    
-    // MARK: Initial Items
-    
+        
     open func requestInitialItems() {
         paginationAdapter.hide()
         
@@ -70,9 +58,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     }
     
     open func handleInitialError(_ error: Error) { }
-    
-    // MARK: Refresh Items
-    
+        
     open func requestRefreshItems() {
         pageProvider.getFirstPage { [weak self] (result) in
             switch result {
@@ -97,9 +83,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     open func handleRefreshError(_ error: Error) {
         refreshControl.endRefreshing()
     }
-    
-    // MARK: Next Page Items
-    
+        
     open func requestNextPageItems() {
         pageProvider.getNextPage { [weak self] (result) in
             switch result {
@@ -129,9 +113,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     ) -> NSDiffableDataSourceSnapshot<SectionItem, RowItem> {
         fatalError()
     }
-    
-    // MARK: - Private methods
-    
+        
     private func startWaitingPage(isEnabled: Bool) {
         paginationAdapter.isEnabled = isEnabled
         paginationAdapter.startWaiting()

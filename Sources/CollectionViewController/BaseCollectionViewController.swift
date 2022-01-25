@@ -7,13 +7,9 @@
 
 import UIKit
 
-// MARK: - BaseCollectionController
-
 open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
     BaseListViewController<SectionItem, RowItem> {
-    
-    // MARK: - Public properties
-    
+        
     open var collectionView: UICollectionView { fatalError() }
     
     lazy var dataSource = UICollectionViewDiffableDataSource<SectionItem, RowItem>(
@@ -24,9 +20,7 @@ open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable
     )
     
     public var snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem> { dataSource.snapshot() }
-    
-    // MARK: - Public methods
-    
+        
     /// Важно: в снепшот сначала нужно добавить секции, а потом айтемы. Иначе креш
     open func apply(
         _ snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem>,

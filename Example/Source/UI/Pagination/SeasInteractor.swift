@@ -8,26 +8,16 @@
 import Foundation
 import ListController
 
-// MARK: - SeasInteractor
-
 class SeasInteractor: LimitOffsetPageProvider {    
-    
-    // MARK: - Types
-    
+        
     typealias T = String
-    
-    // MARK: - Public properties
-    
+        
     var allItems: [String] = []
     var loadedPagesCount: Int = 0
     var isDataEmpty: Bool { allItems.isEmpty }
-
-    // MARK: - Private properties
-    
+        
     private let gateway = SeasGateway()
-    
-    // MARK: - Public methods
-    
+        
     func getItems(limit: Int, offset: Int, completion: @escaping (Result<Page<String>, Error>) -> Void) {
         gateway.getExamples(limit: limit, offset: offset) { result in
             let page = result

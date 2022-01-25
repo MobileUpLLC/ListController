@@ -7,12 +7,8 @@
 
 import UIKit
 
-// MARK: - PagingConfig
-
 public struct PagingConfig {
-    
-    // MARK: - Public properties
-    
+        
     let isRetryEnabled: Bool
     
     let requestTriggerHeight: CGFloat
@@ -45,15 +41,11 @@ public struct PagingConfig {
     }
 }
 
-// MARK: - PagingAdapterDelegate
-
 public protocol PagingAdapterDelegate: AnyObject {
     
     func pagingAdapterDidRequest(_ adapter: PagingAdapter)
     func pagingAdapterDidRetry(_ adapter: PagingAdapter)
 }
-
-// MARK: - PaginationAdapter
 
 open class PagingAdapter {
     
@@ -73,9 +65,7 @@ open class PagingAdapter {
         
         var isLoading: Bool { self == .loading }
     }
-    
-    // MARK: - Public properties
-    
+        
     public weak var delegate: PagingAdapterDelegate?
     
     public let config: PagingConfig
@@ -89,9 +79,7 @@ open class PagingAdapter {
             }
         }
     }
-    
-    // MARK: - Private properties
-    
+        
     private var state: State = .hidden
     
     private var isRetryEnabled: Bool { config.isRetryEnabled }
@@ -106,9 +94,7 @@ open class PagingAdapter {
     
     private var scrollView: UIScrollView
     private var scrollViewSuperView: UIView
-    
-    // MARK: - Public methods
-    
+        
     public init(scrollView: UIScrollView, superView: UIView, config: PagingConfig) {
         self.scrollView = scrollView
         self.scrollViewSuperView = superView
@@ -185,9 +171,7 @@ open class PagingAdapter {
         pageLoadingView.isHidden = false
         pageLoadingView.showMessage(msg)
     }
-    
-    // MARK: - Private methods
-    
+        
     private func startLoading() {
         guard isEnabled else { return }
         

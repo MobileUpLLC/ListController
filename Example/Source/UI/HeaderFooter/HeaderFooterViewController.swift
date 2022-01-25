@@ -8,28 +8,18 @@
 import UIKit
 import ListController
 
-// MARK: - HeaderFooterItem
-
 enum HeaderFooterItem: Hashable {
     case header(_ title: String)
     case footer(_ title: String)
     case item(_ item: PrimitiveItem)
 }
 
-// MARK: - HeaderFooterViewController
-
 class HeaderFooterViewController: TableViewController<Int, HeaderFooterItem> {
-
-    // MARK: - Override properties
-
+    
     override var tableView: UITableView { headerFooterTableView }
-
-    // MARK: - Private properties
-
+    
     private let headerFooterTableView = UITableView(frame: .zero, style: .grouped)
-
-    // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,9 +41,7 @@ class HeaderFooterViewController: TableViewController<Int, HeaderFooterItem> {
             return defaultCellReuseIdentifier
         }
     }
-
-    // MARK: - Private methods
-
+    
     private func makeItems() -> [HeaderFooterItem] {
         var items = [HeaderFooterItem]()
 

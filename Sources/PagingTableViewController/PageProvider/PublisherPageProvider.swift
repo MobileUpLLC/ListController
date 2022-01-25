@@ -7,21 +7,13 @@
 
 import Combine
 
-// MARK: - PublisherPageProvider
-
 public protocol PublisherPageProvider: PageProvider, AnyObject {
-    
-    // MARK: - Public properties
-    
+        
     var subscribes: Set<AnyCancellable> { get set }
-    
-    // MARK: - Public methods
-    
+        
     func getFirstPage() -> AnyPublisher<PageResult<T>, Error>
     func getNextPage() -> AnyPublisher<PageResult<T>, Error>
 }
-
-// MARK: - PageProvider Implementation
 
 public extension PublisherPageProvider {
     
@@ -37,8 +29,6 @@ public extension PublisherPageProvider {
             .store(in: &subscribes)
     }
 }
-
-// MARK: - AnyPublisher + Sink On Closure
 
 extension AnyPublisher {
     

@@ -8,16 +8,10 @@
 import UIKit
 import ListController
 
-// MARK: - ExamplesViewController
-
 class ExamplesViewController: TableViewController<Int, Example> {
-
-    // MARK: - Override properties
-
+    
     override var tableView: UITableView { examplesTableView }
-
-    // MARK: - Private properties
-
+    
     private let examplesTableView = UITableView(frame: .zero, style: .grouped)
 
     private let items: [Example] = [
@@ -27,9 +21,7 @@ class ExamplesViewController: TableViewController<Int, Example> {
         Example(name: "Pagination with publisher", controller: PublisherPagingTableController.self),
         Example(name: "Pagination with TabBar", controller: TabBarPagingTableController.self)
     ]
-
-    // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

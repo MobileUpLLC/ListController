@@ -8,16 +8,10 @@
 import UIKit
 import ListController
 
-// MARK: - PrimitiveItemCell
-
 class PrimitiveItemCell: UITableViewCell {}
 
-// MARK: - Configurable
-
 extension PrimitiveItemCell: Configurable {
-
-    // MARK: - Public methods
-
+    
     func setup(with item: HeaderFooterItem) {
         switch item {
         case .item(let primitive):
