@@ -10,7 +10,7 @@ import UIKit
 open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashable, RowItem: Hashable>:
     LoadingTableViewController<SectionItem, RowItem> {
         
-    open var pageProvider: Provider { fatalError() }
+    open var pageProvider: Provider { fatalError("Page provider must be overriden") }
         
     private var isRequestedInitialItems = false
         
@@ -39,7 +39,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     open func requestInitialItems() {
         paginationAdapter.hide()
         
-        pageProvider.getFirstPage { [weak self] (result) in
+        pageProvider.getFirstPage { [weak self] result in
             switch result {
             case .success(let pageResult):
                 self?.handleInitialItems(pageResult)
@@ -60,7 +60,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     open func handleInitialError(_ error: Error) { }
         
     open func requestRefreshItems() {
-        pageProvider.getFirstPage { [weak self] (result) in
+        pageProvider.getFirstPage { [weak self] result in
             switch result {
             case .success(let pageResult):
                 self?.handleRefreshItems(pageResult)
@@ -85,7 +85,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
     }
         
     open func requestNextPageItems() {
-        pageProvider.getNextPage { [weak self] (result) in
+        pageProvider.getNextPage { [weak self] result in
             switch result {
             case .success(let pageResult):
                 self?.handlePagingItems(pageResult)
@@ -111,7 +111,7 @@ open class PagingTableViewController<Provider: PageProvider, SectionItem: Hashab
         newItems: [Provider.T],
         allItems: [Provider.T]
     ) -> NSDiffableDataSourceSnapshot<SectionItem, RowItem> {
-        fatalError()
+        fatalError("Map should be overriden")
     }
         
     private func startWaitingPage(isEnabled: Bool) {

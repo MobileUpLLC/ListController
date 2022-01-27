@@ -70,7 +70,7 @@ open class PagingAdapter {
     
     public let config: PagingConfig
     
-    public var isEnabled: Bool = false {
+    public var isEnabled = false {
         didSet {
             if isEnabled && oldValue == false {
                 enable()
@@ -87,8 +87,8 @@ open class PagingAdapter {
     private var requestTriggerHeight: CGFloat { config.requestTriggerHeight }
     private var retryTriggerHeight: CGFloat { config.retryTriggerHeight }
     
-    private var isReadyToRequest: Bool = false
-    private var isReadyToRetry: Bool = false
+    private var isReadyToRequest = false
+    private var isReadyToRetry = false
     
     private let pageLoadingView = PageLoadingView()
     
@@ -104,7 +104,9 @@ open class PagingAdapter {
     }
 
     open func updateOnScrollPosition() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         // Positive if content over scroll bottom line.
         // Negative if content fully visible.
@@ -148,7 +150,9 @@ open class PagingAdapter {
     }
     
     open func hide() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .hidden
         pageLoadingView.isHidden = true
@@ -156,7 +160,9 @@ open class PagingAdapter {
 
     /// Should be called after table view updates
     open func startWaiting() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .waiting
         pageLoadingView.isHidden = false
@@ -165,7 +171,9 @@ open class PagingAdapter {
     
     /// Should be called on paging error
     open func showMessage(_ msg: String) {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .message
         pageLoadingView.isHidden = false
@@ -173,7 +181,9 @@ open class PagingAdapter {
     }
         
     private func startLoading() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .loading
         pageLoadingView.isHidden = false

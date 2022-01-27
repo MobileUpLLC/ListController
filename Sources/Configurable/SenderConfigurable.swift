@@ -18,8 +18,8 @@ public protocol AnySenderConfigurable {
 /// `setup()` method won't get called.
 public protocol SenderConfigurable: AnySenderConfigurable {
     
-    associatedtype SenderType : Any
-    associatedtype ItemType   : Any
+    associatedtype SenderType: Any
+    associatedtype ItemType: Any
 
     func setup(with item: ItemType, sender: SenderType)
 }

@@ -18,10 +18,10 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
     override var hasPagination: Bool { true }
         
     private let paginationTableView = UITableView(frame: .zero, style: .grouped)
-    private var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(
+    private var loadingView = UIActivityIndicatorView(
         frame: .init(x: 0, y: 0, width: 40, height: 40)
     )
-    private var isLoading: Bool = false { didSet { updateLoadingIndicator() } }
+    private var isLoading = false { didSet { updateLoadingIndicator() } }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,12 +93,12 @@ class CustomPagingTableViewController<Provider: PageProvider, SectionItem: Hasha
         isLoading = false
         
         UIView.animateKeyframes(withDuration: 1, delay: 0) {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.view.backgroundColor = .red
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
                 self.view.backgroundColor = .white
-            })
+            }
         }
     }
     

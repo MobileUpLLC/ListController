@@ -33,14 +33,14 @@ public extension PublisherPageProvider {
 extension AnyPublisher {
     
     func sinkOn(_ completion: @escaping (Result<Self.Output, Self.Failure>) -> Void) -> AnyCancellable {
-        return sink { (result) in
+        return sink { result in
             switch result {
             case .finished:
                 break
             case .failure(let error):
                 completion(.failure(error))
             }
-        } receiveValue: { (value) in
+        } receiveValue: { value in
             completion(.success(value))
         }
     }

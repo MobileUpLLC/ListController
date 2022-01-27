@@ -10,12 +10,12 @@ import UIKit
 open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>:
     BaseListViewController<SectionItem, RowItem> {
     
-    open var tableView: UITableView { fatalError() }
+    open var tableView: UITableView { fatalError("Table view must be overriden") }
     open var rowAnimation: UITableView.RowAnimation { .automatic }
 
     public lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
         tableView: tableView,
-        cellProvider: { [weak self] (_, indexPath, item) -> UITableViewCell? in
+        cellProvider: { [weak self] _, indexPath, item -> UITableViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
         }
     )

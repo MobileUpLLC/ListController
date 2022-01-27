@@ -31,9 +31,11 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         for sectionItem: SectionItem,
         at sectionIndex: Int
     ) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else { return nil }
-        let configurableItem = prepareSectionHeaderItem(sectionItem, at: sectionIndex)
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else {
+            return nil
+        }
         
+        let configurableItem = prepareSectionHeaderItem(sectionItem, at: sectionIndex)
         setupConfigurableView(view, with: configurableItem)
         
         return view
@@ -44,9 +46,11 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         for sectionItem: SectionItem,
         at sectionIndex: Int
     ) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else { return nil }
-        let configurableItem = prepareSectionFooterItem(sectionItem, at: sectionIndex)
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else {
+            return nil
+        }
         
+        let configurableItem = prepareSectionFooterItem(sectionItem, at: sectionIndex)
         setupConfigurableView(view, with: configurableItem)
         
         return view
@@ -79,14 +83,20 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionItem = snapshot.sectionIdentifiers[section]
-        guard let identifier = headerIdentifier(for: sectionItem, at: section) else { return nil }
+        
+        guard let identifier = headerIdentifier(for: sectionItem, at: section) else {
+            return nil
+        }
         
         return dequeueReusableHeaderView(with: identifier, for: sectionItem, at: section)
     }
 
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sectionItem = snapshot.sectionIdentifiers[section]
-        guard let identifier = footerIdentifier(for: sectionItem, at: section) else { return nil }
+        
+        guard let identifier = footerIdentifier(for: sectionItem, at: section) else {
+            return nil
+        }
         
         return dequeueReusableFooterView(with: identifier, for: sectionItem, at: section)
     }

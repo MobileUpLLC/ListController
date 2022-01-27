@@ -18,7 +18,7 @@ public extension LastItemPageProvider {
         
     func getFirstPage(_ completion: @escaping Completion) {
         getItems(last: nil) { [weak self] page in
-            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
+            let pageResult = page.map { [weak self] page -> PageResult<T> in
                 self?.resetAllItems(page.items)
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }
@@ -28,7 +28,7 @@ public extension LastItemPageProvider {
     
     func getNextPage(_ completion: @escaping Completion) {
         getItems(last: allItems.last) { [weak self] page in
-            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
+            let pageResult = page.map { [weak self] page -> PageResult<T> in
                 self?.appendNewItems(page.items)
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }
