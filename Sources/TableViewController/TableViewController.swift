@@ -122,5 +122,12 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         return nil
     }
     
+    open func tableView(
+        _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        return nil
+    }
+    
     open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }
