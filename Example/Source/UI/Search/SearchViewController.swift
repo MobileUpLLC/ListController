@@ -8,23 +8,15 @@
 import UIKit
 import ListController
 
-// MARK: - SearchViewController
-
 class SearchViewController: TableViewController<Int, String> {
-    
-    // MARK: - Override properties
-    
+        
     override var tableView: UITableView { searchTableView }
-    
-    // MARK: - Private properties
-    
+        
     private let searchTableView = UITableView(frame: .zero, style: .grouped)
     private let searchController = UISearchController(searchResultsController: nil)
     
     private let items: [String] = seas
-    
-    // MARK: - Override methods
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,9 +29,7 @@ class SearchViewController: TableViewController<Int, String> {
 
         apply(items: items)
     }
-
-    // MARK: - Private methods
-
+    
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -50,12 +40,8 @@ class SearchViewController: TableViewController<Int, String> {
     }
 }
 
-// MARK: - SearchViewController
-
 extension SearchViewController: UISearchResultsUpdating {
-
-    // MARK: - Public methods
-
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard
             let searchText = searchController.searchBar.text,

@@ -7,12 +7,8 @@
 
 import UIKit
 
-// MARK: - PagingConfig
-
 public struct PagingConfig {
-    
-    // MARK: - Public properties
-    
+        
     let isRetryEnabled: Bool
     
     let requestTriggerHeight: CGFloat
@@ -45,15 +41,11 @@ public struct PagingConfig {
     }
 }
 
-// MARK: - PagingAdapterDelegate
-
 public protocol PagingAdapterDelegate: AnyObject {
     
     func pagingAdapterDidRequest(_ adapter: PagingAdapter)
     func pagingAdapterDidRetry(_ adapter: PagingAdapter)
 }
-
-// MARK: - PaginationAdapter
 
 open class PagingAdapter {
     
@@ -73,14 +65,12 @@ open class PagingAdapter {
         
         var isLoading: Bool { self == .loading }
     }
-    
-    // MARK: - Public properties
-    
+        
     public weak var delegate: PagingAdapterDelegate?
     
     public let config: PagingConfig
     
-    public var isEnabled: Bool = false {
+    public var isEnabled = false {
         didSet {
             if isEnabled && oldValue == false {
                 enable()
@@ -89,9 +79,7 @@ open class PagingAdapter {
             }
         }
     }
-    
-    // MARK: - Private properties
-    
+        
     private var state: State = .hidden
     
     private var isRetryEnabled: Bool { config.isRetryEnabled }
@@ -99,16 +87,14 @@ open class PagingAdapter {
     private var requestTriggerHeight: CGFloat { config.requestTriggerHeight }
     private var retryTriggerHeight: CGFloat { config.retryTriggerHeight }
     
-    private var isReadyToRequest: Bool = false
-    private var isReadyToRetry: Bool = false
+    private var isReadyToRequest = false
+    private var isReadyToRetry = false
     
     private let pageLoadingView = PageLoadingView()
     
     private var scrollView: UIScrollView
     private var scrollViewSuperView: UIView
-    
-    // MARK: - Public methods
-    
+        
     public init(scrollView: UIScrollView, superView: UIView, config: PagingConfig) {
         self.scrollView = scrollView
         self.scrollViewSuperView = superView
@@ -118,11 +104,15 @@ open class PagingAdapter {
     }
 
     open func updateOnScrollPosition() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         // Positive if content over scroll bottom line.
         // Negative if content fully visible.
+        // swiftlint:disable line_length
         let bottomVerticalContentOffset = scrollView.contentSize.height - (scrollView.contentOffset.y + scrollView.frame.size.height)
+        // swiftlint:enable line_length
         
         // Loading view Layout
         let loadingViewHeight = abs(min(0, bottomVerticalContentOffset))
@@ -160,7 +150,9 @@ open class PagingAdapter {
     }
     
     open func hide() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .hidden
         pageLoadingView.isHidden = true
@@ -168,7 +160,9 @@ open class PagingAdapter {
 
     /// Should be called after table view updates
     open func startWaiting() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .waiting
         pageLoadingView.isHidden = false
@@ -177,17 +171,19 @@ open class PagingAdapter {
     
     /// Should be called on paging error
     open func showMessage(_ msg: String) {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .message
         pageLoadingView.isHidden = false
         pageLoadingView.showMessage(msg)
     }
-    
-    // MARK: - Private methods
-    
+        
     private func startLoading() {
-        guard isEnabled else { return }
+        guard isEnabled else {
+            return
+        }
         
         state = .loading
         pageLoadingView.isHidden = false

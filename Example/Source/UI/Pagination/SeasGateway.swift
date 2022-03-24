@@ -7,17 +7,13 @@
 
 import Foundation
 
-// MARK: - SeasGateway
-
 final class SeasGateway {
     
     enum Error: Swift.Error {
         
         case unknown
     }
-
-    // MARK: - Public methods
-
+    
     func getExamples(
         limit: Int,
         offset: Int,

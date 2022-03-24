@@ -8,30 +8,20 @@
 import UIKit
 import ListController
 
-// MARK: - ExampleCell
-
 class ExampleCell: UITableViewCell {
-
-    // MARK: - Private properties
-
+    
     private let nameLabel = UILabel()
-
-    // MARK: - Public methods
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Override methods
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         makeContentView()
     }
-
-    // MARK: - Private methods
-
+    
     private func makeContentView() {
         let view = UIView()
 
@@ -60,17 +50,13 @@ class ExampleCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            mark.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            mark.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
         ])
     }
 }
 
-// MARK: - Configurable
-
 extension ExampleCell: Configurable {
-
-    // MARK: - Public methods
-
+    
     func setup(with item: Example) {
         nameLabel.text = item.name
     }

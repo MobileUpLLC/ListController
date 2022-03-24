@@ -4,7 +4,8 @@
 //
 //  Created by Nikolai Timonin on 06.04.2021.
 //
-// https://github.com/ra1028/DifferenceKit/blob/master/Examples/Example-iOS/Sources/Common/NibLoadable.swift UITableView.register(...)
+// UITableView.register(...)
+// https://github.com/ra1028/DifferenceKit/blob/master/Examples/Example-iOS/Sources/Common/NibLoadable.swift
 // https://www.raywenderlich.com/10317653-calayer-tutorial-for-ios-getting-started CARepeaterLayer
 // https://6ary.medium.com/combine-getting-started-guide-c5ac0febc04c Combine
 // https://habr.com/ru/company/deliveryclub/blog/548792/ Compositonal Layout
@@ -12,20 +13,15 @@
 
 import UIKit
 
-// MARK: - TableViewController
-
-open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTableViewController<SectionItem, RowItem>, UITableViewDelegate {
-
-    // MARK: - Override methods
-
+open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseTableViewController<SectionItem, RowItem>, UITableViewDelegate {
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
     }
-
-    // MARK: - Public mehtods
-
+    
     open func cellDidSelect(for item: RowItem, at indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -35,9 +31,11 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         for sectionItem: SectionItem,
         at sectionIndex: Int
     ) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else { return nil }
-        let configurableItem = prepareSectionHeaderItem(sectionItem, at: sectionIndex)
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else {
+            return nil
+        }
         
+        let configurableItem = prepareSectionHeaderItem(sectionItem, at: sectionIndex)
         setupConfigurableView(view, with: configurableItem)
         
         return view
@@ -48,9 +46,11 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         for sectionItem: SectionItem,
         at sectionIndex: Int
     ) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else { return nil }
-        let configurableItem = prepareSectionFooterItem(sectionItem, at: sectionIndex)
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) else {
+            return nil
+        }
         
+        let configurableItem = prepareSectionFooterItem(sectionItem, at: sectionIndex)
         setupConfigurableView(view, with: configurableItem)
         
         return view
@@ -72,8 +72,6 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         return item
     }
     
-    // MARK: - UITableViewDelegate
-
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else {
             assertionFailure("Don't find item of type: `\(RowItem.self)` for index path: \(indexPath)")
@@ -85,14 +83,20 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionItem = snapshot.sectionIdentifiers[section]
-        guard let identifier = headerIdentifier(for: sectionItem, at: section) else { return nil }
+        
+        guard let identifier = headerIdentifier(for: sectionItem, at: section) else {
+            return nil
+        }
         
         return dequeueReusableHeaderView(with: identifier, for: sectionItem, at: section)
     }
 
     open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sectionItem = snapshot.sectionIdentifiers[section]
-        guard let identifier = footerIdentifier(for: sectionItem, at: section) else { return nil }
+        
+        guard let identifier = footerIdentifier(for: sectionItem, at: section) else {
+            return nil
+        }
         
         return dequeueReusableFooterView(with: identifier, for: sectionItem, at: section)
     }
@@ -111,8 +115,5 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseTa
         return UITableView.automaticDimension
     }
     
-    // MARK: - UIScrollViewDelegate
-
     open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }
-

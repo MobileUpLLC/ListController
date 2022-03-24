@@ -7,25 +7,20 @@
 
 import UIKit
 
-// MARK: - BaseCollectionController
-
-open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>: BaseListViewController<SectionItem, RowItem> {
-    
-    // MARK: - Public properties
-    
-    open var collectionView: UICollectionView { fatalError() }
+open class BaseCollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseListViewController<SectionItem, RowItem> {
+        
+    open var collectionView: UICollectionView { fatalError("Collection view must be overriden") }
     
     lazy var dataSource = UICollectionViewDiffableDataSource<SectionItem, RowItem>(
         collectionView: collectionView,
-        cellProvider: { [weak self] (collection, indexPath, item) -> UICollectionViewCell? in
+        cellProvider: { [weak self] _, indexPath, item -> UICollectionViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
         }
     )
     
     public var snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem> { dataSource.snapshot() }
-    
-    // MARK: - Public methods
-    
+        
     /// Важно: в снепшот сначала нужно добавить секции, а потом айтемы. Иначе креш
     open func apply(
         _ snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem>,

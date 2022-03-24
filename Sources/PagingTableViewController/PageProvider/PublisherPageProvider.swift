@@ -7,21 +7,13 @@
 
 import Combine
 
-// MARK: - PublisherPageProvider
-
 public protocol PublisherPageProvider: PageProvider, AnyObject {
-    
-    // MARK: - Public properties
-    
+        
     var subscribes: Set<AnyCancellable> { get set }
-    
-    // MARK: - Public methods
-    
+        
     func getFirstPage() -> AnyPublisher<PageResult<T>, Error>
     func getNextPage() -> AnyPublisher<PageResult<T>, Error>
 }
-
-// MARK: - PageProvider Implementation
 
 public extension PublisherPageProvider {
     
@@ -38,19 +30,17 @@ public extension PublisherPageProvider {
     }
 }
 
-// MARK: - AnyPublisher + Sink On Closure
-
 extension AnyPublisher {
     
     func sinkOn(_ completion: @escaping (Result<Self.Output, Self.Failure>) -> Void) -> AnyCancellable {
-        return sink { (result) in
+        return sink { result in
             switch result {
             case .finished:
                 break
             case .failure(let error):
                 completion(.failure(error))
             }
-        } receiveValue: { (value) in
+        } receiveValue: { value in
             completion(.success(value))
         }
     }

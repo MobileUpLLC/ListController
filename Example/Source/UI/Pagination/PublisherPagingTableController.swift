@@ -8,20 +8,12 @@
 import UIKit
 import ListController
 
-// MARK: - PublisherPagingTableController
-
 class PublisherPagingTableController: CustomPagingTableViewController<PublisherSeasInteractor, Int, String> {
     
-    // MARK: - Override properties
-
     override var pageProvider: PublisherSeasInteractor { interactor }
-    
-    // MARK: - Private properties
-    
+        
     private let interactor = PublisherSeasInteractor()
-    
-    // MARK: - Override methods
-    
+        
     override func map(
         newItems: [String],
         allItems: [String]

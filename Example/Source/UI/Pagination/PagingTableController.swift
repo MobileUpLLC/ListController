@@ -8,20 +8,12 @@
 import UIKit
 import ListController
 
-// MARK: - PagingTableController
-
 class PagingTableController: CustomPagingTableViewController<SeasInteractor, Int, String> {
     
-    // MARK: - Override properties
-
     override var pageProvider: SeasInteractor { interactor }
-    
-    // MARK: - Private properties
-    
+        
     private let interactor = SeasInteractor()
-    
-    // MARK: - Override methods
-    
+        
     override func map(
         newItems: [String],
         allItems: [String]

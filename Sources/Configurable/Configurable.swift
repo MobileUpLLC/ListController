@@ -7,14 +7,10 @@
 
 import Foundation
 
-// MARK: AnyConfigurable
-
 public protocol AnyConfigurable {
     
     func anySetup(with item: Any)
 }
-
-// MARK: Configurable
 
 /// Implement in order to receive item for reusable view setup.
 /// If real value type provided by Section doesn't match ItemType,
@@ -25,8 +21,6 @@ public protocol Configurable: AnyConfigurable {
     
     func setup(with item: ItemType)
 }
-
-// MARK: AnyConfigurable Implementation
 
 public extension Configurable {
     
@@ -44,4 +38,3 @@ public extension Configurable {
         setup(with: obj)
     }
 }
-

@@ -8,14 +8,12 @@
 import UIKit
 import Combine
 
-// MARK: - LoadingTableViewController
+/// LoadingTableViewController = TableViewController + UIRefreshControl with infinite scroll support.
+/// PagingAdapter takes care of the inifite scroll logic.
 
-/// LoadingTableViewController = TableViewController + UIRefreshControl with infinite scroll support. PagingAdapter takes care of the inifite scroll logic.
-
-open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>: TableViewController<SectionItem, RowItem> {
-    
-    // MARK: - Public properties
-    
+open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
+    TableViewController<SectionItem, RowItem> {
+        
     open var hasRefresh: Bool { false }
     open var hasPagination: Bool { false }
     
@@ -23,9 +21,7 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
     
     open lazy var paginationAdapter = PagingAdapter(scrollView: tableView, superView: view, config: pagingConfig)
     open lazy var refreshControl = UIRefreshControl()
-    
-    // MARK: - Override methods
-    
+        
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,15 +34,11 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
         
         paginationAdapter.updateOnScrollPosition()
     }
-    
-    // MARK: - Public methods
-    
+        
     @objc open func refreshDidStartLoading(_ refreshControl: UIRefreshControl) { }
     
     open func pagingDidStartLoading(_ adapter: PagingAdapter) { }
-    
-    // MARK: - Private methods
-    
+        
     private func setupRefreshControl() {
         if hasRefresh {
             tableView.refreshControl = refreshControl
@@ -65,8 +57,6 @@ open class LoadingTableViewController<SectionItem: Hashable, RowItem: Hashable>:
         }
     }
 }
-
-// MARK: - PaginationAdapterDelegate
 
 extension LoadingTableViewController: PagingAdapterDelegate {
     

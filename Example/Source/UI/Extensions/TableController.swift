@@ -8,12 +8,8 @@
 import UIKit
 import ListController
 
-// MARK: - TableController
-
 extension TableViewController {
-
-    // MARK: - Public methods
-
+    
     func setupTable(separatorStyle: UITableViewCell.SeparatorStyle = .singleLine) {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
@@ -30,17 +26,13 @@ extension TableViewController {
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }
 
-// MARK: - TableController
-
 extension TableViewController where SectionItem == Int {
-
-    // MARK: - Public methods
-
+    
     func apply(items: [RowItem], animated: Bool = false) {
         var snapshot = snapshot
 

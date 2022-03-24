@@ -7,17 +7,11 @@
 
 import UIKit
 
-// MARK: - AppDelegate
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    // MARK: - Public properties
-
+    
     var window: UIWindow?
-
-    // MARK: - Public methods
-
+    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -31,4 +25,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

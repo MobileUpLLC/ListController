@@ -7,28 +7,18 @@
 
 import Foundation
 
-// MARK: - LastItemPageProvider
-
 public protocol LastItemPageProvider: PageProvider, AnyObject {
-    
-    // MARK: - Public properties
-    
+        
     var allItems: [T] { get set }
-    
-    // MARK: - Public methods
-    
+        
     func getItems(last: T?, completion: @escaping (Result<Page<T>, Error>) -> Void)
 }
 
-// MARK: - LastItemPageProvider + Default Implementation
-
 public extension LastItemPageProvider {
-    
-    // MARK: - Public methods
-    
+        
     func getFirstPage(_ completion: @escaping Completion) {
         getItems(last: nil) { [weak self] page in
-            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
+            let pageResult = page.map { [weak self] page -> PageResult<T> in
                 self?.resetAllItems(page.items)
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }
@@ -38,7 +28,7 @@ public extension LastItemPageProvider {
     
     func getNextPage(_ completion: @escaping Completion) {
         getItems(last: allItems.last) { [weak self] page in
-            let pageResult = page.map { [weak self] (page) -> PageResult<T> in
+            let pageResult = page.map { [weak self] page -> PageResult<T> in
                 self?.appendNewItems(page.items)
                 return PageResult(newItems: page.items, allItems: self?.allItems ?? [], hasMore: page.hasMore)
             }

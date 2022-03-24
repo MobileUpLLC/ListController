@@ -7,17 +7,11 @@
 
 import UIKit
 
-// MARK: - PageLoadingView
-
 open class PageLoadingView: UIView {
-    
-    // MARK: - Private properties
-    
+        
     private let loadingIndicatorView = UIActivityIndicatorView(style: .medium)
     private let messageLabel = UILabel()
-    
-    // MARK: - Override methods
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,9 +27,7 @@ open class PageLoadingView: UIView {
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Public methods
-    
+        
     func startLoading() {
         superview?.bringSubviewToFront(self)
         

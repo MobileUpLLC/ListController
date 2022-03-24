@@ -7,22 +7,14 @@
 
 import UIKit
 
-// MARK: - Example
-
 struct Example {
-
-    // MARK: - Public properties
-
+    
     let name: String
     let controller: UIViewController.Type
 }
 
-// MARK: - Hashable
-
 extension Example: Hashable {
-
-    // MARK: - Public methods
-
+    
     static func == (lhs: Example, rhs: Example) -> Bool {
         return lhs.name == rhs.name
     }

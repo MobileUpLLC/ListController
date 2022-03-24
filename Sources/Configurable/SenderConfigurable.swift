@@ -7,14 +7,10 @@
 
 import Foundation
 
-// MARK: AnySenderConfigurable
-
 public protocol AnySenderConfigurable {
     
     func anySetup(with item: Any, sender: Any?)
 }
-
-// MARK: SenderConfigurable
 
 /// Implement in order to receive item and sender for reusable view setup.
 /// If real item value type provided by Section doesn't match ItemType,
@@ -22,13 +18,11 @@ public protocol AnySenderConfigurable {
 /// `setup()` method won't get called.
 public protocol SenderConfigurable: AnySenderConfigurable {
     
-    associatedtype SenderType : Any
-    associatedtype ItemType   : Any
+    associatedtype SenderType: Any
+    associatedtype ItemType: Any
 
     func setup(with item: ItemType, sender: SenderType)
 }
-
-// MARK: AnySenderConfigurable Implementation
 
 public extension SenderConfigurable {
     
@@ -58,4 +52,3 @@ public extension SenderConfigurable {
         setup(with: obj, sender: sen)
     }
 }
-

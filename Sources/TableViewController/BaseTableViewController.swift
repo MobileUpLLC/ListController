@@ -7,34 +7,27 @@
 
 import UIKit
 
-// MARK: - BaseTableViewController
-
-open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>: BaseListViewController<SectionItem, RowItem> {
-
-    // MARK: - Public properties
-
-    open var tableView: UITableView { fatalError() }
+open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>:
+    BaseListViewController<SectionItem, RowItem> {
+    
+    open var tableView: UITableView { fatalError("Table view must be overriden") }
     open var rowAnimation: UITableView.RowAnimation { .automatic }
 
     public lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
         tableView: tableView,
-        cellProvider: { [weak self] (tableView, indexPath, item) -> UITableViewCell? in
+        cellProvider: { [weak self] _, indexPath, item -> UITableViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
         }
     )
 
     public var snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem> { dataSource.snapshot() }
-
-    // MARK: - Override methods
-
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
 
         dataSource.defaultRowAnimation = rowAnimation
     }
-
-    // MARK: - Public methods
-
+    
     /// Important: you first need to add sections to the snapshot, and then items. Otherwise crash
     open func apply(
         _ snapshot: NSDiffableDataSourceSnapshot<SectionItem, RowItem>,
