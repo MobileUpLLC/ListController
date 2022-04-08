@@ -115,5 +115,12 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
         return UITableView.automaticDimension
     }
     
+    open func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        return nil
+    }
+    
     open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }
