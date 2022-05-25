@@ -13,7 +13,7 @@ open class BaseTableViewController<SectionItem: Hashable, RowItem: Hashable>:
     open var tableView: UITableView { fatalError("Table view must be overriden") }
     open var rowAnimation: UITableView.RowAnimation { .automatic }
 
-    public lazy var dataSource = UITableViewDiffableDataSource<SectionItem, RowItem>(
+    public lazy var dataSource = TableViewDiffableDataSource<SectionItem, RowItem>(
         tableView: tableView,
         cellProvider: { [weak self] _, indexPath, item -> UITableViewCell? in
             return self?.dequeueReusableCell(for: item, at: indexPath)
