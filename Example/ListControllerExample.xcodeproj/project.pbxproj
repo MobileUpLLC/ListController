@@ -30,6 +30,13 @@
 		E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8626C1167F00346314 /* PrimitiveItem.swift */; };
 		E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8826C1176B00346314 /* PrimitiveItemCell.swift */; };
 		E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */; };
+		FA80D68228A24FF200C56D0A /* BaseLoadingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68128A24FF200C56D0A /* BaseLoadingCollectionViewController.swift */; };
+		FA80D68428A250B400C56D0A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68328A250B400C56D0A /* CollectionViewController.swift */; };
+		FA80D68628A252DC00C56D0A /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68528A252DC00C56D0A /* CollectionView.swift */; };
+		FA80D68A28A255CB00C56D0A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68928A255CB00C56D0A /* UIView+Extension.swift */; };
+		FA80D68C28A257FC00C56D0A /* SeasCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68B28A257FC00C56D0A /* SeasCollectionCell.swift */; };
+		FA80D69028A2628200C56D0A /* CollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D68F28A2628200C56D0A /* CollectionInteractor.swift */; };
+		FA80D69228A2628A00C56D0A /* CollectionGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80D69128A2628A00C56D0A /* CollectionGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +65,13 @@
 		E2A73F8626C1167F00346314 /* PrimitiveItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveItem.swift; sourceTree = "<group>"; };
 		E2A73F8826C1176B00346314 /* PrimitiveItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimitiveItemCell.swift; sourceTree = "<group>"; };
 		E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredHeaderFooterCell.swift; sourceTree = "<group>"; };
+		FA80D68128A24FF200C56D0A /* BaseLoadingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLoadingCollectionViewController.swift; sourceTree = "<group>"; };
+		FA80D68328A250B400C56D0A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		FA80D68528A252DC00C56D0A /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		FA80D68928A255CB00C56D0A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		FA80D68B28A257FC00C56D0A /* SeasCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasCollectionCell.swift; sourceTree = "<group>"; };
+		FA80D68F28A2628200C56D0A /* CollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInteractor.swift; sourceTree = "<group>"; };
+		FA80D69128A2628A00C56D0A /* CollectionGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +184,7 @@
 		E27B485726BD77C300C19A0F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				FA80D68028A24EAE00C56D0A /* LoadingCollection */,
 				E27B486426BD926100C19A0F /* Extensions */,
 				E20B665226BD38A800CA1C1E /* Examples */,
 				E27B485A26BD80E700C19A0F /* Search */,
@@ -193,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				E27B486526BD92A500C19A0F /* TableController.swift */,
+				FA80D68928A255CB00C56D0A /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +221,19 @@
 				E2A73F8C26C120EA00346314 /* ColoredHeaderFooterCell.swift */,
 			);
 			path = HeaderFooter;
+			sourceTree = "<group>";
+		};
+		FA80D68028A24EAE00C56D0A /* LoadingCollection */ = {
+			isa = PBXGroup;
+			children = (
+				FA80D68128A24FF200C56D0A /* BaseLoadingCollectionViewController.swift */,
+				FA80D68328A250B400C56D0A /* CollectionViewController.swift */,
+				FA80D68528A252DC00C56D0A /* CollectionView.swift */,
+				FA80D68B28A257FC00C56D0A /* SeasCollectionCell.swift */,
+				FA80D68F28A2628200C56D0A /* CollectionInteractor.swift */,
+				FA80D69128A2628A00C56D0A /* CollectionGateway.swift */,
+			);
+			path = LoadingCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,19 +336,26 @@
 				E27B486326BD914B00C19A0F /* SearchCell.swift in Sources */,
 				E27B485926BD77E500C19A0F /* ExampleCell.swift in Sources */,
 				8FC856FE2778D2DB0081B2B5 /* PagingTableController.swift in Sources */,
+				FA80D69028A2628200C56D0A /* CollectionInteractor.swift in Sources */,
+				FA80D68628A252DC00C56D0A /* CollectionView.swift in Sources */,
 				E2A73F8926C1176B00346314 /* PrimitiveItemCell.swift in Sources */,
 				E27B486626BD92A500C19A0F /* TableController.swift in Sources */,
 				E26EF4C426BD2DD500E43157 /* ExamplesViewController.swift in Sources */,
 				E26EF4C026BD2DD500E43157 /* AppDelegate.swift in Sources */,
 				8F8657FB2779E0A600ED9240 /* CustomPagingTableViewController.swift in Sources */,
 				8FD150CA277351F1002D042C /* SeasInteractor.swift in Sources */,
+				FA80D68428A250B400C56D0A /* CollectionViewController.swift in Sources */,
 				8FA849852775FEC6001B3528 /* PublisherSeasInteractor.swift in Sources */,
+				FA80D68C28A257FC00C56D0A /* SeasCollectionCell.swift in Sources */,
 				8FD150CC277353AC002D042C /* SeasGateway.swift in Sources */,
+				FA80D69228A2628A00C56D0A /* CollectionGateway.swift in Sources */,
 				8F8657F92779DDDE00ED9240 /* PublisherPagingTableController.swift in Sources */,
 				E2A73F8D26C120EA00346314 /* ColoredHeaderFooterCell.swift in Sources */,
 				E2A73F8726C1167F00346314 /* PrimitiveItem.swift in Sources */,
 				E27B486126BD8CAF00C19A0F /* Sea.swift in Sources */,
+				FA80D68A28A255CB00C56D0A /* UIView+Extension.swift in Sources */,
 				E20B665926BD5E1000CA1C1E /* Example.swift in Sources */,
+				FA80D68228A24FF200C56D0A /* BaseLoadingCollectionViewController.swift in Sources */,
 				8FF050FF277376F20035292B /* TabBarPagingTableController.swift in Sources */,
 				E2A73F8526C1152C00346314 /* HeaderFooterViewController.swift in Sources */,
 				8FA849872775FFE4001B3528 /* PublisherSeasGateway.swift in Sources */,
@@ -462,7 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4778UMCE49;
+				DEVELOPMENT_TEAM = SV97SW9934;
 				INFOPLIST_FILE = Source/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
