@@ -42,6 +42,14 @@ class CollectionViewController: BaseLoadingCollectionViewController<CollectionSe
         getSeas()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        switch item {
+        case .sea(let seaName):
+            print(seaName)
+        }
+    }
+    
     private func setupCollectionView() {
         view.layoutSubview(collectionView, with: .insets(top: nil, left: 0, bottom: 0, right: 0), safe: true)
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
