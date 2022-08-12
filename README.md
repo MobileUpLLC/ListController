@@ -80,13 +80,13 @@ class ExamplesViewController: TableController<Int, Example> {
 ### 3. Use PagingTableViewController as parent class
 PageProvider - performs work with pages. You need to implement a class inherited from the PageProvider class.
 ```swift
-    override var pageProvider: SeasInteractor { interactor }
-    private let interactor = SeasInteractor()
+    override var pageProvider: ExampleInteractor { interactor }
+    private let interactor = ExampleInteractor()
 ```
 ```swift
    import ListController
 
-    class SeasInteractor: LimitOffsetPageProvider {    
+    class ExampleInteractor: LimitOffsetPageProvider {    
         
         typealias T = String
         
@@ -94,7 +94,7 @@ PageProvider - performs work with pages. You need to implement a class inherited
         var loadedPagesCount: Int = 0
         var isDataEmpty: Bool { allItems.isEmpty }
         
-        private let gateway = SeasGateway()
+        private let gateway = ExampleGateway()
             
         func getItems(limit: Int, offset: Int, completion: @escaping (Result<Page<String>, Error>) -> Void) {
             gateway.getExamples(limit: limit, offset: offset) { result in
