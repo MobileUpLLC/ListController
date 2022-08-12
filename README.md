@@ -198,6 +198,13 @@ This method allows you to recreate the table with the changed values
         dataSource.apply(snapshot, animatingDifferences: animating, completion: completion)
     }
 ```
+Use this method to handle refresh loading
+```swift
+    override func refreshDidStartLoading(_ refreshControl: UIRefreshControl) {
+        super.refreshDidStartLoading(refreshControl)
+        // Do some on refreshing
+    }
+```
 
 ## Requirements
 
