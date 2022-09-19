@@ -44,4 +44,6 @@ open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
     ) {
         
     }
+    
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
 }
