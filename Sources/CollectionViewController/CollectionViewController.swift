@@ -33,17 +33,13 @@ open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
         _ collectionView: UICollectionView,
         willDisplay cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath
-    ) {
-        
-    }
+    ) { }
     
     open func collectionView(
         _ collectionView: UICollectionView,
         didEndDisplaying cell: UICollectionViewCell,
         forItemAt indexPath: IndexPath
-    ) {
-        
-    }
+    ) { }
     
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
     

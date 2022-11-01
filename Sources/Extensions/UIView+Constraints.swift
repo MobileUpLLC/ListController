@@ -39,9 +39,9 @@ extension UIView {
 }
 
 public struct LayoutInsets {
-    
+
     public static var zero: LayoutInsets { self.init() }
-    
+
     public var top: CGFloat?
     public var left: CGFloat?
     public var bottom: CGFloat?
