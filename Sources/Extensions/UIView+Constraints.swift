@@ -40,12 +40,12 @@ extension UIView {
 
 struct LayoutInsets {
     
-    public static var zero: LayoutInsets { self.init(top: .zero, left: .zero, bottom: .zero, right: .zero) }
+    static var zero: LayoutInsets { self.init(top: .zero, left: .zero, bottom: .zero, right: .zero) }
     
-    public var top: CGFloat?
-    public var left: CGFloat?
-    public var bottom: CGFloat?
-    public var right: CGFloat?
+    var top: CGFloat?
+    var left: CGFloat?
+    var bottom: CGFloat?
+    var right: CGFloat?
     
     init(
         top: CGFloat? = nil,
