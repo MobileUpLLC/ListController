@@ -38,20 +38,20 @@ extension UIView {
     }
 }
 
-public struct LayoutInsets {
-
-    public static var zero: LayoutInsets { self.init() }
-
-    public var top: CGFloat?
-    public var left: CGFloat?
-    public var bottom: CGFloat?
-    public var right: CGFloat?
+struct LayoutInsets {
     
-    public init(
-        top: CGFloat? = .zero,
-        left: CGFloat? = .zero,
-        bottom: CGFloat? = .zero,
-        right: CGFloat? = .zero
+    static var zero: LayoutInsets { self.init(top: .zero, left: .zero, bottom: .zero, right: .zero) }
+    
+    var top: CGFloat?
+    var left: CGFloat?
+    var bottom: CGFloat?
+    var right: CGFloat?
+    
+    init(
+        top: CGFloat? = nil,
+        left: CGFloat? = nil,
+        bottom: CGFloat? = nil,
+        right: CGFloat? = nil
     ) {
         self.top = top
         self.left = left
@@ -59,11 +59,11 @@ public struct LayoutInsets {
         self.right = right
     }
     
-    public static func insets(
-        top: CGFloat? = .zero,
-        left: CGFloat? = .zero,
-        bottom: CGFloat? = .zero,
-        right: CGFloat? = .zero
+    static func insets(
+        top: CGFloat? = nil,
+        left: CGFloat? = nil,
+        bottom: CGFloat? = nil,
+        right: CGFloat? = nil
     ) -> LayoutInsets {
         return LayoutInsets(top: top, left: left, bottom: bottom, right: right)
     }
