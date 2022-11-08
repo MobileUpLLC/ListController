@@ -28,4 +28,20 @@ open class CollectionViewController<SectionItem: Hashable, RowItem: Hashable>:
         
         cellDidSelect(for: item, at: indexPath)
     }
+    
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) { }
+    
+    open func collectionView(
+        _ collectionView: UICollectionView,
+        didEndDisplaying cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) { }
+    
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
+    
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
 }
