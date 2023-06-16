@@ -131,4 +131,6 @@ open class TableViewController<SectionItem: Hashable, RowItem: Hashable>:
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) { }
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { }
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) { }
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) { }
 }
